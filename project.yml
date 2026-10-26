@@ -1,0 +1,93 @@
+name: StromWidget
+options:
+  bundleIdPrefix: info.stromapp
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+settings:
+  base:
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    DEVELOPMENT_TEAM: TKYS4BYH6B
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "Apple Development"
+    PROVISIONING_PROFILE_SPECIFIER: ""
+    ENABLE_HARDENED_RUNTIME: NO
+    STROM_APP_GROUP: TKYS4BYH6B.info.stromapp.widget
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    SWIFT_EMIT_LOC_STRINGS: YES
+targets:
+  StromWidget:
+    type: application
+    platform: macOS
+    sources:
+      - App
+      - Shared
+    settings:
+      base:
+        PRODUCT_NAME: "Strom Widget"
+        PRODUCT_BUNDLE_IDENTIFIER: info.stromapp.widget
+        INFOPLIST_FILE: App/Info.plist
+        CODE_SIGN_ENTITLEMENTS: App/StromWidget.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    dependencies:
+      - target: StromWidgetExtension
+        embed: true
+      - target: StromWidgetHelper
+        embed: true
+        copy:
+          destination: wrapper
+          subpath: Contents/Library/LoginItems
+  StromWidgetHelper:
+    type: application
+    platform: macOS
+    sources:
+      - Helper
+      - Shared
+    settings:
+      base:
+        PRODUCT_NAME: StromWidgetHelper
+        PRODUCT_BUNDLE_IDENTIFIER: info.stromapp.widget.helper
+        INFOPLIST_FILE: Helper/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Helper/StromWidgetHelper.entitlements
+        SKIP_INSTALL: YES
+  StromWidgetExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - Extension
+      - Shared
+    settings:
+      base:
+        PRODUCT_NAME: StromWidgetExtension
+        PRODUCT_BUNDLE_IDENTIFIER: info.stromapp.widget.extension
+        INFOPLIST_FILE: Extension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Extension/StromWidgetExtension.entitlements
+        SKIP_INSTALL: YES
+  StromWidgetTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Tests
+      - Shared
+      - App/HostModel.swift
+      - App/HostViews.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: info.stromapp.widget.tests
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        DEVELOPMENT_TEAM: ""
+schemes:
+  StromWidget:
+    build:
+      targets:
+        StromWidget: all
+        StromWidgetTests: [test]
+    test:
+      targets:
+        - StromWidgetTests

@@ -1,0 +1,914 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000CB705793DE6D94E029B62 /* TimeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB046DD3077318B1BB37C4B /* TimeText.swift */; };
+		04C5485BED67FE67CADB358A /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30C9B68C9D24875A82EAC /* Mirror.swift */; };
+		09FF0838FFC855718D6C85CC /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3C830F42A757BA8E21B90 /* Strings.swift */; };
+		1057C9476A0A4D579EB0A8EF /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30C9B68C9D24875A82EAC /* Mirror.swift */; };
+		133DC839F617C1073A47063E /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
+		14B2A1BDBCF34B624B15FF1F /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30C9B68C9D24875A82EAC /* Mirror.swift */; };
+		162CAD0B98E6A6054FA2B4F3 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
+		17B95AC9F4C48DD61C56C583 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
+		1B19BF3E41C18117AD82DBC2 /* StromWidgetHelper.app in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 9F21773EF00E57F86CA66D84 /* StromWidgetHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2027F4E414F4D735FF44790F /* HostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EA9E81A0F7789D28B966B /* HostModel.swift */; };
+		207E82DEB2D16F7FFAF87B10 /* LayoutLanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801086D719C72ECE6A553B0 /* LayoutLanguageTests.swift */; };
+		21A28B6C3E60A984C1DB3283 /* research-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 890261DF8BB29AD2FACD3F43 /* research-sample.json */; };
+		2429212A993D29846C6008F9 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6D6914658352C6BCDEFF2 /* WidgetData.swift */; };
+		2583E76C64F322DD04BCDEF2 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6D6914658352C6BCDEFF2 /* WidgetData.swift */; };
+		25D3671A37F3B8E73956923C /* Findings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA879904B56ED7CA3606B27 /* Findings.swift */; };
+		28ED1192886F4D99899CF7A6 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A04D360A5296B5F97D809 /* WidgetModel.swift */; };
+		2BB6A2CE4FCBEC3950183FF1 /* StromResearchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856DCC658D282FBC06FC01D /* StromResearchWidget.swift */; };
+		2CEAC80C71B571E9DD77DE48 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 808DBEA0B08259107BF41B18 /* Localizable.xcstrings */; };
+		2EFECDD0624A3B3D90DE8EFC /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0964F2C76176FDC210CA534 /* SampleData.swift */; };
+		30754033EDA198AB8B06FCA3 /* Findings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA879904B56ED7CA3606B27 /* Findings.swift */; };
+		31C1CBA7CE04B902005E9D4A /* HostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EA9E81A0F7789D28B966B /* HostModel.swift */; };
+		3744BD106522AF04E5F89C49 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6D6914658352C6BCDEFF2 /* WidgetData.swift */; };
+		3B234C3D90BC1D0B9F5C1AC8 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A04D360A5296B5F97D809 /* WidgetModel.swift */; };
+		45795E54D194C016C8B58948 /* StromWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F74B3093C2CA6426C7C3F291 /* StromWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		48A2FD74A5EABA1ABE7168D7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
+		494247E49045585F1E794CB2 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
+		4F702A4393E937CC847C8754 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3C830F42A757BA8E21B90 /* Strings.swift */; };
+		503163D60EE5E4F7935F2CF9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
+		5218266DA1A2E42DE4D22FCD /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
+		55ECF0B63993713010B98E58 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0964F2C76176FDC210CA534 /* SampleData.swift */; };
+		576E98C83B487043CE0E2267 /* HelperMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2D3BE76B5CC3967A09BA3 /* HelperMain.swift */; };
+		59D7FDDAED8A76CE0980D987 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3C830F42A757BA8E21B90 /* Strings.swift */; };
+		5A7B2A5DD47346422B3A6405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630548408260D1DAC78DFC2 /* AppDelegate.swift */; };
+		60ADDA8DCF3B7AEE41107F12 /* ResearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */; };
+		60B1C2BC167F6E67B5750C91 /* ResearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */; };
+		62EA7A9960698339BC1DBA89 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3C830F42A757BA8E21B90 /* Strings.swift */; };
+		6725D7A8091F7E10FB9C69BA /* TimeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB046DD3077318B1BB37C4B /* TimeText.swift */; };
+		74EFFA98992B243409475EC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
+		7BF356C4761206EDC35375A7 /* ResearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */; };
+		7C3D13CDA78B01B9E3D6F7D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD1DF754B37CF32CAD4A56B /* Assets.xcassets */; };
+		7CFA8BB8FFA1861EA1B2AEEC /* HostViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70A6CFD4D2E5C6E495E2C8 /* HostViews.swift */; };
+		7FDAB959C8F630E1D075104E /* HostViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70A6CFD4D2E5C6E495E2C8 /* HostViews.swift */; };
+		813B22DB0F3BE8F0FC10E738 /* Findings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA879904B56ED7CA3606B27 /* Findings.swift */; };
+		871EFD860F09A5E639CFD792 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6D6914658352C6BCDEFF2 /* WidgetData.swift */; };
+		8832347CFD9D901AD8C3A07C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 808DBEA0B08259107BF41B18 /* Localizable.xcstrings */; };
+		8CE1DFE7AC7B03C9D053A769 /* ResearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */; };
+		98D2697AAE6C3C83DAC9DF57 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0964F2C76176FDC210CA534 /* SampleData.swift */; };
+		9D3606F766DD7E07EA652770 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
+		A5082984F8A106A26112D6FD /* ContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E88D069CC2E0223314369 /* ContractTests.swift */; };
+		A7A19DC14DD977CA4718CF5A /* research-sample-index.json in Resources */ = {isa = PBXBuildFile; fileRef = 42628A02D1BC745CD2097730 /* research-sample-index.json */; };
+		AA2976904BB5A66A000AC8D2 /* TimeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB046DD3077318B1BB37C4B /* TimeText.swift */; };
+		B389939A76624F0015219540 /* TimeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB046DD3077318B1BB37C4B /* TimeText.swift */; };
+		B5F9299715A00693C6E5A741 /* ResearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */; };
+		BBE106A895BE429D639EE38E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
+		BCA03A505BD1A6A8161776DD /* contract-example.json in Resources */ = {isa = PBXBuildFile; fileRef = F27D1500E9F1303EDBA23667 /* contract-example.json */; };
+		BF5CBF92DA9B12756E703C19 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 808DBEA0B08259107BF41B18 /* Localizable.xcstrings */; };
+		C6A3DD5AD26772A993FC963E /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
+		C81D1A81C6D74FDC6406E00C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
+		CAF91CE90A5AB0C6326A6EA1 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0964F2C76176FDC210CA534 /* SampleData.swift */; };
+		CCE0EAF6EA31644ED8940319 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
+		CF7832DD8CB955F7FE8BD536 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A04D360A5296B5F97D809 /* WidgetModel.swift */; };
+		D75788442FA016BC7F857A27 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
+		D79984E2F46B804A9A0507E6 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8F685F3060A8D316013E41 /* SnapshotTests.swift */; };
+		D8A90C78A00830F041BA7CDC /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 808DBEA0B08259107BF41B18 /* Localizable.xcstrings */; };
+		DB4F1B7D6D55C9279C6FA8C2 /* ResearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */; };
+		E564B4DDC83DFD019193479E /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30C9B68C9D24875A82EAC /* Mirror.swift */; };
+		E5A5FDA3C202D5DE141F61B0 /* ResearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */; };
+		E6963AE079F187DF91EE8D21 /* MirrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6675912E21BDAFAF2002D953 /* MirrorTests.swift */; };
+		E8296BBA473E5C21DA497F18 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
+		E9D52F820222E98E421DD37E /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A04D360A5296B5F97D809 /* WidgetModel.swift */; };
+		EA9C42568772897C18B856C2 /* ResearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */; };
+		F2631276582F0E59C8FD1671 /* Findings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA879904B56ED7CA3606B27 /* Findings.swift */; };
+		F7C55186663AD1822CECC9F7 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
+		FD4E7D863663D7DC360D1826 /* StateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234DD9FE79C2E86DBC8E94B /* StateTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18DA795729AA7DF4867F4A3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 399B3D73CBFD80E7DB81803C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 174F17EBA05EE6BE34887FD6;
+			remoteInfo = StromWidgetHelper;
+		};
+		441D91F3CFB1740624641354 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 399B3D73CBFD80E7DB81803C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3012E83AF215CE0ADAA85E96;
+			remoteInfo = StromWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4F6735E91B91D273FE48A249 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				45795E54D194C016C8B58948 /* StromWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1C71FDD8F6318BBDBFB6D1F /* Embed Dependencies */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				1B19BF3E41C18117AD82DBC2 /* StromWidgetHelper.app in Embed Dependencies */,
+			);
+			name = "Embed Dependencies";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		046E88D069CC2E0223314369 /* ContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTests.swift; sourceTree = "<group>"; };
+		09E3C830F42A757BA8E21B90 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		0AD1DF754B37CF32CAD4A56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1EF30C9B68C9D24875A82EAC /* Mirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mirror.swift; sourceTree = "<group>"; };
+		2B70A6CFD4D2E5C6E495E2C8 /* HostViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViews.swift; sourceTree = "<group>"; };
+		2DEBCC8A68B9A6287F6D940A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3856DCC658D282FBC06FC01D /* StromResearchWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StromResearchWidget.swift; sourceTree = "<group>"; };
+		3CA327330DD2E6FC52978DB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3FB046DD3077318B1BB37C4B /* TimeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeText.swift; sourceTree = "<group>"; };
+		42628A02D1BC745CD2097730 /* research-sample-index.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "research-sample-index.json"; sourceTree = "<group>"; };
+		4630548408260D1DAC78DFC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		48E53281FD9F3350869032D1 /* WidgetLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLink.swift; sourceTree = "<group>"; };
+		4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
+		549E67626E306BC371F18F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchIntent.swift; sourceTree = "<group>"; };
+		6675912E21BDAFAF2002D953 /* MirrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorTests.swift; sourceTree = "<group>"; };
+		7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchStore.swift; sourceTree = "<group>"; };
+		808DBEA0B08259107BF41B18 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		83EB4A231251F921BB09EC50 /* StromWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StromWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		890261DF8BB29AD2FACD3F43 /* research-sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "research-sample.json"; sourceTree = "<group>"; };
+		89606785C6AD3C414A1BA5AA /* StromWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StromWidget.entitlements; sourceTree = "<group>"; };
+		94ABDF70EC651EFC6DA145B9 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		9E8F685F3060A8D316013E41 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
+		9F21773EF00E57F86CA66D84 /* StromWidgetHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StromWidgetHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0A04D360A5296B5F97D809 /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
+		AFA879904B56ED7CA3606B27 /* Findings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Findings.swift; sourceTree = "<group>"; };
+		B4E6D6914658352C6BCDEFF2 /* WidgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetData.swift; sourceTree = "<group>"; };
+		BC1EA9E81A0F7789D28B966B /* HostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostModel.swift; sourceTree = "<group>"; };
+		DB9E73F3D68A445B815C8AAA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		E0964F2C76176FDC210CA534 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		F234DD9FE79C2E86DBC8E94B /* StateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTests.swift; sourceTree = "<group>"; };
+		F27D1500E9F1303EDBA23667 /* contract-example.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "contract-example.json"; sourceTree = "<group>"; };
+		F74B3093C2CA6426C7C3F291 /* StromWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StromWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7A2C3DF2CA9A654019F00E8 /* StromWidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StromWidgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7E8AD9F2CB6D4143BFF5FB6 /* StromWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StromWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F801086D719C72ECE6A553B0 /* LayoutLanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLanguageTests.swift; sourceTree = "<group>"; };
+		FAE2D3BE76B5CC3967A09BA3 /* HelperMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMain.swift; sourceTree = "<group>"; };
+		FBD2EC07087ED5FF1092AB66 /* StromWidgetHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StromWidgetHelper.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		122A35AB068CD9AA25E46BD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83EB4A231251F921BB09EC50 /* StromWidget.app */,
+				F74B3093C2CA6426C7C3F291 /* StromWidgetExtension.appex */,
+				9F21773EF00E57F86CA66D84 /* StromWidgetHelper.app */,
+				F7A2C3DF2CA9A654019F00E8 /* StromWidgetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27FAAE0277783CFFA3C32BB3 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				046E88D069CC2E0223314369 /* ContractTests.swift */,
+				F801086D719C72ECE6A553B0 /* LayoutLanguageTests.swift */,
+				6675912E21BDAFAF2002D953 /* MirrorTests.swift */,
+				9E8F685F3060A8D316013E41 /* SnapshotTests.swift */,
+				F234DD9FE79C2E86DBC8E94B /* StateTests.swift */,
+				5D065F4FD87799A6BDFE7AF0 /* Fixtures */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		4125A166512C8E932EF8EFA5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AAAF3C141B13FD9CFE51E541 /* Logic */,
+				5B4A3FDCAFF70E207A7171D0 /* Model */,
+				5C6A748F18F350E5063E328A /* Resources */,
+				5FB6674BE3A44763EB57C677 /* UI */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5B4A3FDCAFF70E207A7171D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */,
+				E0964F2C76176FDC210CA534 /* SampleData.swift */,
+				B4E6D6914658352C6BCDEFF2 /* WidgetData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C6A748F18F350E5063E328A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				808DBEA0B08259107BF41B18 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5D065F4FD87799A6BDFE7AF0 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				F27D1500E9F1303EDBA23667 /* contract-example.json */,
+				42628A02D1BC745CD2097730 /* research-sample-index.json */,
+				890261DF8BB29AD2FACD3F43 /* research-sample.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		5FB6674BE3A44763EB57C677 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				94ABDF70EC651EFC6DA145B9 /* Components.swift */,
+				DB9E73F3D68A445B815C8AAA /* Theme.swift */,
+				4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AAAF3C141B13FD9CFE51E541 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				AFA879904B56ED7CA3606B27 /* Findings.swift */,
+				1EF30C9B68C9D24875A82EAC /* Mirror.swift */,
+				5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */,
+				09E3C830F42A757BA8E21B90 /* Strings.swift */,
+				3FB046DD3077318B1BB37C4B /* TimeText.swift */,
+				48E53281FD9F3350869032D1 /* WidgetLink.swift */,
+				AF0A04D360A5296B5F97D809 /* WidgetModel.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		D7E99265CDCE894E52AD4A4A = {
+			isa = PBXGroup;
+			children = (
+				E373335A0D188C310B47B3A0 /* App */,
+				F100FEEA7F4AB3644F75BB65 /* Extension */,
+				ED13D6EAD8104F2B95B11FC1 /* Helper */,
+				4125A166512C8E932EF8EFA5 /* Shared */,
+				27FAAE0277783CFFA3C32BB3 /* Tests */,
+				122A35AB068CD9AA25E46BD5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E373335A0D188C310B47B3A0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4630548408260D1DAC78DFC2 /* AppDelegate.swift */,
+				0AD1DF754B37CF32CAD4A56B /* Assets.xcassets */,
+				BC1EA9E81A0F7789D28B966B /* HostModel.swift */,
+				2B70A6CFD4D2E5C6E495E2C8 /* HostViews.swift */,
+				3CA327330DD2E6FC52978DB3 /* Info.plist */,
+				89606785C6AD3C414A1BA5AA /* StromWidget.entitlements */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ED13D6EAD8104F2B95B11FC1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FAE2D3BE76B5CC3967A09BA3 /* HelperMain.swift */,
+				2DEBCC8A68B9A6287F6D940A /* Info.plist */,
+				FBD2EC07087ED5FF1092AB66 /* StromWidgetHelper.entitlements */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		F100FEEA7F4AB3644F75BB65 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				549E67626E306BC371F18F90 /* Info.plist */,
+				3856DCC658D282FBC06FC01D /* StromResearchWidget.swift */,
+				F7E8AD9F2CB6D4143BFF5FB6 /* StromWidgetExtension.entitlements */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		174F17EBA05EE6BE34887FD6 /* StromWidgetHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D98818D56973E4853A1189B /* Build configuration list for PBXNativeTarget "StromWidgetHelper" */;
+			buildPhases = (
+				922FB3E57182B5E0A64D844F /* Sources */,
+				92794CBAECA2E836C93FEB07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StromWidgetHelper;
+			packageProductDependencies = (
+			);
+			productName = StromWidgetHelper;
+			productReference = 9F21773EF00E57F86CA66D84 /* StromWidgetHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3012E83AF215CE0ADAA85E96 /* StromWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 528179F50B7AE6A16648F5A2 /* Build configuration list for PBXNativeTarget "StromWidgetExtension" */;
+			buildPhases = (
+				28BEC66C526A0DD2E9719A45 /* Sources */,
+				9F8E840F50C5AA316A4B40A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StromWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = StromWidgetExtension;
+			productReference = F74B3093C2CA6426C7C3F291 /* StromWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5145116B543C0C19AA02FA59 /* StromWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64071FB88C85CFB1B0165F40 /* Build configuration list for PBXNativeTarget "StromWidget" */;
+			buildPhases = (
+				DCC51B1F6143FFE3770CDB54 /* Sources */,
+				F68F1030C716DB5797B4DF14 /* Resources */,
+				4F6735E91B91D273FE48A249 /* Embed Foundation Extensions */,
+				B1C71FDD8F6318BBDBFB6D1F /* Embed Dependencies */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8082676CE27F1E2C1E7255D /* PBXTargetDependency */,
+				F02943727A7C2229C7F5B077 /* PBXTargetDependency */,
+			);
+			name = StromWidget;
+			packageProductDependencies = (
+			);
+			productName = StromWidget;
+			productReference = 83EB4A231251F921BB09EC50 /* StromWidget.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF86A1C347D134FFD0108E9C /* StromWidgetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275F17BC26887182A269B710 /* Build configuration list for PBXNativeTarget "StromWidgetTests" */;
+			buildPhases = (
+				5021AC29B31F69D0CEA8AEE5 /* Sources */,
+				31326D42746BE5369DE110C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StromWidgetTests;
+			packageProductDependencies = (
+			);
+			productName = StromWidgetTests;
+			productReference = F7A2C3DF2CA9A654019F00E8 /* StromWidgetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		399B3D73CBFD80E7DB81803C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					174F17EBA05EE6BE34887FD6 = {
+						DevelopmentTeam = TKYS4BYH6B;
+						ProvisioningStyle = Manual;
+					};
+					3012E83AF215CE0ADAA85E96 = {
+						DevelopmentTeam = TKYS4BYH6B;
+						ProvisioningStyle = Manual;
+					};
+					5145116B543C0C19AA02FA59 = {
+						DevelopmentTeam = TKYS4BYH6B;
+						ProvisioningStyle = Manual;
+					};
+					FF86A1C347D134FFD0108E9C = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 56964FEB6B23195AF473ED79 /* Build configuration list for PBXProject "StromWidget" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				cs,
+				de,
+				en,
+			);
+			mainGroup = D7E99265CDCE894E52AD4A4A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5145116B543C0C19AA02FA59 /* StromWidget */,
+				3012E83AF215CE0ADAA85E96 /* StromWidgetExtension */,
+				174F17EBA05EE6BE34887FD6 /* StromWidgetHelper */,
+				FF86A1C347D134FFD0108E9C /* StromWidgetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31326D42746BE5369DE110C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8A90C78A00830F041BA7CDC /* Localizable.xcstrings in Resources */,
+				BCA03A505BD1A6A8161776DD /* contract-example.json in Resources */,
+				A7A19DC14DD977CA4718CF5A /* research-sample-index.json in Resources */,
+				21A28B6C3E60A984C1DB3283 /* research-sample.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92794CBAECA2E836C93FEB07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8832347CFD9D901AD8C3A07C /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F8E840F50C5AA316A4B40A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5CBF92DA9B12756E703C19 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F68F1030C716DB5797B4DF14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C3D13CDA78B01B9E3D6F7D0 /* Assets.xcassets in Resources */,
+				2CEAC80C71B571E9DD77DE48 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28BEC66C526A0DD2E9719A45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81D1A81C6D74FDC6406E00C /* Components.swift in Sources */,
+				25D3671A37F3B8E73956923C /* Findings.swift in Sources */,
+				1057C9476A0A4D579EB0A8EF /* Mirror.swift in Sources */,
+				7BF356C4761206EDC35375A7 /* ResearchIntent.swift in Sources */,
+				8CE1DFE7AC7B03C9D053A769 /* ResearchStore.swift in Sources */,
+				98D2697AAE6C3C83DAC9DF57 /* SampleData.swift in Sources */,
+				4F702A4393E937CC847C8754 /* Strings.swift in Sources */,
+				2BB6A2CE4FCBEC3950183FF1 /* StromResearchWidget.swift in Sources */,
+				BBE106A895BE429D639EE38E /* Theme.swift in Sources */,
+				AA2976904BB5A66A000AC8D2 /* TimeText.swift in Sources */,
+				3744BD106522AF04E5F89C49 /* WidgetData.swift in Sources */,
+				D75788442FA016BC7F857A27 /* WidgetLink.swift in Sources */,
+				3B234C3D90BC1D0B9F5C1AC8 /* WidgetModel.swift in Sources */,
+				5218266DA1A2E42DE4D22FCD /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5021AC29B31F69D0CEA8AEE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503163D60EE5E4F7935F2CF9 /* Components.swift in Sources */,
+				A5082984F8A106A26112D6FD /* ContractTests.swift in Sources */,
+				813B22DB0F3BE8F0FC10E738 /* Findings.swift in Sources */,
+				31C1CBA7CE04B902005E9D4A /* HostModel.swift in Sources */,
+				7CFA8BB8FFA1861EA1B2AEEC /* HostViews.swift in Sources */,
+				207E82DEB2D16F7FFAF87B10 /* LayoutLanguageTests.swift in Sources */,
+				E564B4DDC83DFD019193479E /* Mirror.swift in Sources */,
+				E6963AE079F187DF91EE8D21 /* MirrorTests.swift in Sources */,
+				E5A5FDA3C202D5DE141F61B0 /* ResearchIntent.swift in Sources */,
+				B5F9299715A00693C6E5A741 /* ResearchStore.swift in Sources */,
+				55ECF0B63993713010B98E58 /* SampleData.swift in Sources */,
+				D79984E2F46B804A9A0507E6 /* SnapshotTests.swift in Sources */,
+				FD4E7D863663D7DC360D1826 /* StateTests.swift in Sources */,
+				59D7FDDAED8A76CE0980D987 /* Strings.swift in Sources */,
+				48A2FD74A5EABA1ABE7168D7 /* Theme.swift in Sources */,
+				B389939A76624F0015219540 /* TimeText.swift in Sources */,
+				2429212A993D29846C6008F9 /* WidgetData.swift in Sources */,
+				162CAD0B98E6A6054FA2B4F3 /* WidgetLink.swift in Sources */,
+				E9D52F820222E98E421DD37E /* WidgetModel.swift in Sources */,
+				F7C55186663AD1822CECC9F7 /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		922FB3E57182B5E0A64D844F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				494247E49045585F1E794CB2 /* Components.swift in Sources */,
+				F2631276582F0E59C8FD1671 /* Findings.swift in Sources */,
+				576E98C83B487043CE0E2267 /* HelperMain.swift in Sources */,
+				04C5485BED67FE67CADB358A /* Mirror.swift in Sources */,
+				EA9C42568772897C18B856C2 /* ResearchIntent.swift in Sources */,
+				60ADDA8DCF3B7AEE41107F12 /* ResearchStore.swift in Sources */,
+				CAF91CE90A5AB0C6326A6EA1 /* SampleData.swift in Sources */,
+				09FF0838FFC855718D6C85CC /* Strings.swift in Sources */,
+				E8296BBA473E5C21DA497F18 /* Theme.swift in Sources */,
+				000CB705793DE6D94E029B62 /* TimeText.swift in Sources */,
+				871EFD860F09A5E639CFD792 /* WidgetData.swift in Sources */,
+				CCE0EAF6EA31644ED8940319 /* WidgetLink.swift in Sources */,
+				CF7832DD8CB955F7FE8BD536 /* WidgetModel.swift in Sources */,
+				C6A3DD5AD26772A993FC963E /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC51B1F6143FFE3770CDB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7B2A5DD47346422B3A6405 /* AppDelegate.swift in Sources */,
+				133DC839F617C1073A47063E /* Components.swift in Sources */,
+				30754033EDA198AB8B06FCA3 /* Findings.swift in Sources */,
+				2027F4E414F4D735FF44790F /* HostModel.swift in Sources */,
+				7FDAB959C8F630E1D075104E /* HostViews.swift in Sources */,
+				14B2A1BDBCF34B624B15FF1F /* Mirror.swift in Sources */,
+				60B1C2BC167F6E67B5750C91 /* ResearchIntent.swift in Sources */,
+				DB4F1B7D6D55C9279C6FA8C2 /* ResearchStore.swift in Sources */,
+				2EFECDD0624A3B3D90DE8EFC /* SampleData.swift in Sources */,
+				62EA7A9960698339BC1DBA89 /* Strings.swift in Sources */,
+				74EFFA98992B243409475EC1 /* Theme.swift in Sources */,
+				6725D7A8091F7E10FB9C69BA /* TimeText.swift in Sources */,
+				2583E76C64F322DD04BCDEF2 /* WidgetData.swift in Sources */,
+				9D3606F766DD7E07EA652770 /* WidgetLink.swift in Sources */,
+				28ED1192886F4D99899CF7A6 /* WidgetModel.swift in Sources */,
+				17B95AC9F4C48DD61C56C583 /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F02943727A7C2229C7F5B077 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 174F17EBA05EE6BE34887FD6 /* StromWidgetHelper */;
+			targetProxy = 18DA795729AA7DF4867F4A3C /* PBXContainerItemProxy */;
+		};
+		F8082676CE27F1E2C1E7255D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3012E83AF215CE0ADAA85E96 /* StromWidgetExtension */;
+			targetProxy = 441D91F3CFB1740624641354 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		12C3519D2FAA72D62777315B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extension/StromWidgetExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget.extension;
+				PRODUCT_NAME = StromWidgetExtension;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		33C15053043F810A9CAD0428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Helper/StromWidgetHelper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Helper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget.helper;
+				PRODUCT_NAME = StromWidgetHelper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4CB717FC4E3731302C21B45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/StromWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget;
+				PRODUCT_NAME = "Strom Widget";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		50ACDC1343DFD090AD3D778A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/StromWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget;
+				PRODUCT_NAME = "Strom Widget";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5C9D7AFBFD6D0FCDDEF75598 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget.tests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AE4AF843CF58521A460B2B23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TKYS4BYH6B;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STROM_APP_GROUP = TKYS4BYH6B.info.stromapp.widget;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D8242BD13E6F1E00C9E1A4B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Helper/StromWidgetHelper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Helper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget.helper;
+				PRODUCT_NAME = StromWidgetHelper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DF9F1386E8B094D6001B3E60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TKYS4BYH6B;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STROM_APP_GROUP = TKYS4BYH6B.info.stromapp.widget;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E2A9A6BFF1B7EEE9319909C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extension/StromWidgetExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget.extension;
+				PRODUCT_NAME = StromWidgetExtension;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F5917CBA8AC01B7C30A41856 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = info.stromapp.widget.tests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		275F17BC26887182A269B710 /* Build configuration list for PBXNativeTarget "StromWidgetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5917CBA8AC01B7C30A41856 /* Debug */,
+				5C9D7AFBFD6D0FCDDEF75598 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		528179F50B7AE6A16648F5A2 /* Build configuration list for PBXNativeTarget "StromWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2A9A6BFF1B7EEE9319909C5 /* Debug */,
+				12C3519D2FAA72D62777315B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		56964FEB6B23195AF473ED79 /* Build configuration list for PBXProject "StromWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE4AF843CF58521A460B2B23 /* Debug */,
+				DF9F1386E8B094D6001B3E60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5D98818D56973E4853A1189B /* Build configuration list for PBXNativeTarget "StromWidgetHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8242BD13E6F1E00C9E1A4B2 /* Debug */,
+				33C15053043F810A9CAD0428 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		64071FB88C85CFB1B0165F40 /* Build configuration list for PBXNativeTarget "StromWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ACDC1343DFD090AD3D778A /* Debug */,
+				4CB717FC4E3731302C21B45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 399B3D73CBFD80E7DB81803C /* Project object */;
+}

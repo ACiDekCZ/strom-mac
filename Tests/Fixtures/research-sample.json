@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "treeKey": "8766d005-3a27-4dc9-a3c5-a62d70726cf5",
+  "treeName": "Lhotákovi ze Lhoty",
+  "lang": "cs",
+  "generatedAt": "2026-10-26T08:19:43Z",
+  "running": true,
+  "lastActiveAt": "2026-10-26T08:19:43Z",
+  "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty",
+  "now": {
+    "lines": [
+      {
+        "dir": "up",
+        "title": "Předci Bořivoje Lhotáka",
+        "titleNoNames": "Předci osoby (*1784)",
+        "task": "Hledat křest Bořivoje Lhotáka v matrice Lhota",
+        "taskNoNames": "Hledat křest … v matrice Lhota",
+        "since": "2026-10-26T07:19:36Z",
+        "pausedUntil": null,
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      }
+    ]
+  },
+  "findings": {
+    "windowStart": "2026-10-25T08:19:43Z",
+    "items": [
+      {
+        "kind": "resolved",
+        "resolved": "conflict",
+        "text": "Rok narození Dobromily Lhotákové",
+        "textNoNames": "Rok narození …",
+        "at": "2026-10-26T08:19:21Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "child",
+        "text": "Božetěch Lhoták",
+        "textNoNames": "osoba",
+        "at": "2026-10-26T08:19:14Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "family_new",
+        "text": "Bořivoj Lhoták & Dobromila Lhotáková",
+        "textNoNames": "rodina",
+        "at": "2026-10-26T08:19:10Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "person_new",
+        "text": "Božetěch Lhoták",
+        "textNoNames": "osoba",
+        "at": "2026-10-26T08:19:04Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "fact",
+        "fact": "other",
+        "label": "Povolání",
+        "text": "Bořivoj Lhoták, sládek",
+        "textNoNames": "osoba, sládek",
+        "at": "2026-10-26T08:19:00Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "fact",
+        "fact": "death",
+        "label": null,
+        "text": "Dobromila Lhotáková, 1820, Lhota",
+        "textNoNames": "osoba, 1820, Lhota",
+        "at": "2026-10-26T08:18:54Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "fact",
+        "fact": "birth",
+        "label": null,
+        "text": "Dobromila Lhotáková, 1762, Lhota",
+        "textNoNames": "osoba, 1762, Lhota",
+        "at": "2026-10-26T08:18:49Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "person_new",
+        "text": "Dobromila Lhotáková (1762–1820)",
+        "textNoNames": "osoba (1762–1820)",
+        "at": "2026-10-26T08:18:45Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "source_new",
+        "text": "Matrika N Lhota 1780–1790",
+        "textNoNames": "Matrika N Lhota 1780–1790",
+        "at": "2026-10-26T08:18:42Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "fact",
+        "fact": "birth",
+        "label": null,
+        "text": "Bořivoj Lhoták, 3. 5. 1784, Lhota",
+        "textNoNames": "osoba, 3. 5. 1784, Lhota",
+        "at": "2026-10-26T08:18:39Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      },
+      {
+        "kind": "person_new",
+        "text": "Bořivoj Lhoták (*1784)",
+        "textNoNames": "osoba (*1784)",
+        "at": "2026-10-26T08:18:35Z",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+      }
+    ]
+  },
+  "pending": {
+    "count": 1,
+    "items": [
+      {
+        "text": "Opis zápisu Božetěcha",
+        "textNoNames": "Opis zápisu …"
+      }
+    ],
+    "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty"
+  },
+  "stats24h": {
+    "persons": 3,
+    "sources": 1,
+    "saves": 19
+  }
+}

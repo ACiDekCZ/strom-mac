@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "treeKey": "lhotakovi-lhota",
+  "treeName": "Lhotákovi ze Lhoty",
+  "lang": "cs",
+  "generatedAt": "2026-10-26T14:32:05+01:00",
+  "running": true,
+  "lastActiveAt": "2026-10-26T14:32:05+01:00",
+  "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty",
+  "now": {
+    "lines": [
+      { "dir": "up", "title": "Předci Bořivoje Lhotáka", "titleNoNames": "Předci osoby (1784)",
+        "task": "Hledat křest v matrice Lhota 1780–1790", "since": "2026-10-26T09:40:00+01:00",
+        "pausedUntil": null, "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty" }
+    ],
+    "lastWorkedAt": "2026-10-26T12:30:00+01:00"
+  },
+  "findings": {
+    "windowStart": "2026-10-25T14:32:05+01:00",
+    "sinceStromOpenedAt": "2026-10-26T08:55:00+01:00",
+    "items": [
+      { "kind": "person_new", "text": "Dobromila Lhotáková (1762–1820)", "textNoNames": "osoba (1762–1820)",
+        "at": "2026-10-26T13:05:00+01:00", "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty" },
+      { "kind": "fact", "fact": "birth", "label": null, "text": "Bořivoj Lhoták, 3. 5. 1784, Lhota",
+        "textNoNames": "osoba, 3. 5. 1784, Lhota", "at": "2026-10-26T12:41:00+01:00",
+        "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty" }
+    ]
+  },
+  "pending": { "count": 2, "items": [ { "text": "Rozhodnout rozpor: dvě data narození", "textNoNames": "Rozhodnout rozpor: dvě data narození" } ],
+               "openUrl": "https://stromapp.info/run/?tree=lhotakovi-ze-lhoty" },
+  "stats24h": { "persons": 3, "sources": 5, "saves": 12 }
+}
