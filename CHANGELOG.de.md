@@ -9,7 +9,7 @@ Die Änderungen jeder Version in Kürze. Die Downloads stehen bei
 
 *Die erste Version. Benötigt macOS 14 oder neuer und Strom Ahnenforschung 1.21 oder neuer auf demselben Mac.*
 
-- **Die Strom-Forschung auf dem Mac-Schreibtisch.** Ein Widget in vier Größen (klein bis extra groß) zeigt, woran die
+- **Strom Ahnenforschung auf dem Mac-Schreibtisch.** Ein Widget in vier Größen (klein bis extra groß) zeigt, woran die
   Forschung gerade arbeitet, was sie in den letzten 24 Stunden gefunden hat (Personen, Familien, Quellen, gelöste
   Widersprüche) und was auf eine Entscheidung wartet. Eine Forschung pro Widget; bei mehreren wählt jedes Widget seine.
 - **Namen lassen sich ausblenden.** Das Widget zeigt die Übersicht auf Wunsch ohne Namen von Personen, für einen

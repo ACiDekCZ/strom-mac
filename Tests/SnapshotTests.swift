@@ -37,6 +37,14 @@ final class SnapshotTests: XCTestCase {
     }
 
     private func widget(_ model: WidgetModel, _ family: StromFamily, _ scheme: ColorScheme, _ mode: Mode) -> some View {
+        card(model, family, scheme, mode)
+            .padding(18)
+            .background(desktop(scheme))
+            .environment(\.colorScheme, scheme)
+    }
+
+    /// One widget without the desktop around it.
+    private func card(_ model: WidgetModel, _ family: StromFamily, _ scheme: ColorScheme, _ mode: Mode = .color) -> some View {
         let size = family.designSize
         let palette = Palette.forScheme(scheme)
         return StromWidgetView(model: model, family: family)
@@ -52,8 +60,6 @@ final class SnapshotTests: XCTestCase {
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-            .padding(18)
-            .background(desktop(scheme))
             .environment(\.colorScheme, scheme)
     }
 
@@ -64,12 +70,12 @@ final class SnapshotTests: XCTestCase {
     }
 
     @discardableResult
-    private func render<V: View>(_ view: V, _ file: String) throws -> NSImage {
+    private func render<V: View>(_ view: V, _ file: String, to dir: URL? = nil) throws -> NSImage {
         let renderer = ImageRenderer(content: view)
         renderer.scale = 2
         let image = try XCTUnwrap(renderer.cgImage, file)
         XCTAssertGreaterThan(image.width, 100, file)
-        if let dir = outDir {
+        if let dir = dir ?? outDir {
             try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
             let rep = NSBitmapImageRep(cgImage: image)
             let png = try XCTUnwrap(rep.representation(using: .png, properties: [:]))
@@ -163,6 +169,52 @@ final class SnapshotTests: XCTestCase {
             try render(OpenFailedView(lang: .cs, what: "Narození Bořivoj Lhoták", address: SampleData.base, onCopy: {}, onClose: {})
                 .environment(\.colorScheme, scheme), "7d-open-failed-\(suffix)")
             try render(IconTile(size: 128).padding(20).background(desktop(scheme)).environment(\.colorScheme, scheme), "8d-icon-\(suffix)")
+        }
+    }
+
+    /// The pictures of the README (`.github/images/`), in English. Written when `STROM_README_DIR` is set
+    /// (xcodebuild: `TEST_RUNNER_STROM_README_DIR`).
+    func testReadmeImages() throws {
+        let env = ProcessInfo.processInfo.environment["STROM_README_DIR"]
+        let dir = env.flatMap { $0.isEmpty ? nil : URL(fileURLWithPath: $0, isDirectory: true) }
+        let working = SampleData.model(.b, lang: .en)
+        for scheme in [ColorScheme.light, .dark] {
+            let suffix = scheme == .dark ? "-dark" : ""
+            // Several sizes side by side, as on a desktop.
+            let hero = HStack(alignment: .top, spacing: 18) {
+                card(working, .large, scheme)
+                VStack(spacing: 18) {
+                    card(working, .medium, scheme)
+                    HStack(spacing: 24) {
+                        card(SampleData.model(.a, lang: .en), .small, scheme)
+                        card(SampleData.model(.c, lang: .en), .small, scheme)
+                    }
+                }
+            }
+            .padding(28)
+            .background(desktop(scheme))
+            .environment(\.colorScheme, scheme)
+            try render(hero, "hero\(suffix)", to: dir)
+            for family in StromFamily.allCases {
+                try render(widget(working, family, scheme, .color), "\(readmeName(family))\(suffix)", to: dir)
+            }
+            try render(widget(SampleData.model(.c, lang: .en), .medium, scheme, .color), "state-paused\(suffix)", to: dir)
+            try render(widget(SampleData.model(.d, lang: .en), .medium, scheme, .color), "state-idle\(suffix)", to: dir)
+            try render(widget(SampleData.model(.f, lang: .en), .medium, scheme, .color), "state-not-running\(suffix)", to: dir)
+            try render(widget(SampleData.model(.b, lang: .en, hideNames: true), .large, scheme, .color), "hidden-names\(suffix)", to: dir)
+            let window = HostSnapshot.build(index: .ok(SampleData.index(lang: .en)), trees: [SampleData.treeKey: SampleData.tree(.a, lang: .en)],
+                                            widgetCounts: [SampleData.treeKey: 2], choice: .auto, now: SampleData.at(14, 35),
+                                            timeZone: SampleData.timeZone)
+            try render(HostMainView(snapshot: window).environment(\.colorScheme, scheme), "app-window\(suffix)", to: dir)
+        }
+    }
+
+    private func readmeName(_ f: StromFamily) -> String {
+        switch f {
+        case .small: return "widget-small"
+        case .medium: return "widget-medium"
+        case .large: return "widget-large"
+        case .extraLarge: return "widget-extra-large"
         }
     }
 }

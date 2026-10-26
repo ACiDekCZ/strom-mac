@@ -218,7 +218,7 @@ struct L10n {
     var appName: String { "Strom Widget" }
     var appTagline: String { t("Výzkum Stromu na ploše Macu: na čem se pracuje a co se našlo.",
                                "Strom research on the Mac desktop: what is being worked on and what was found.",
-                               "Strom-Forschung auf dem Mac-Schreibtisch: woran gearbeitet wird und was gefunden wurde.") }
+                               "Strom Ahnenforschung auf dem Mac-Schreibtisch: woran gearbeitet wird und was gefunden wurde.") }
     var appResearches: String { t("Výzkumy na tomto Macu", "Research on this Mac", "Forschung auf diesem Mac") }
     func appRowRunning(_ time: String, _ language: String) -> String { t("běží · stav \(time) · \(language)", "running · as of \(time) · \(language)", "läuft · Stand \(time) · \(language)") }
     func appRowStopped(_ when: String, _ language: String) -> String { t("neběží · naposledy \(when) · \(language)", "not running · last \(when) · \(language)", "läuft nicht · zuletzt \(when) · \(language)") }

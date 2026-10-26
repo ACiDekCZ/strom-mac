@@ -387,8 +387,9 @@ enum PopUpMenu {
             menuItem.state = item.checked ? .on : .off
             menu.addItem(menuItem)
         }
+        // The menu item holds its target weakly; keep the targets alive while the menu is open.
         withExtendedLifetime(targets) {
-            menu.popUp(positioning: nil, at: NSEvent.mouseLocation, in: nil)
+            _ = menu.popUp(positioning: nil, at: NSEvent.mouseLocation, in: nil)
         }
     }
 }
