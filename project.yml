@@ -75,6 +75,7 @@ targets:
       - Shared
       - App/HostModel.swift
       - App/HostViews.swift
+      - App/HostWindow.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: info.stromapp.widget.tests

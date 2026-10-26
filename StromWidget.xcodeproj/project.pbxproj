@@ -28,6 +28,7 @@
 		2EFECDD0624A3B3D90DE8EFC /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0964F2C76176FDC210CA534 /* SampleData.swift */; };
 		30754033EDA198AB8B06FCA3 /* Findings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA879904B56ED7CA3606B27 /* Findings.swift */; };
 		31C1CBA7CE04B902005E9D4A /* HostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EA9E81A0F7789D28B966B /* HostModel.swift */; };
+		35EED9A973767E73307068F9 /* HostWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CCBD694DFF14DE0DE86A06 /* HostWindow.swift */; };
 		3744BD106522AF04E5F89C49 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6D6914658352C6BCDEFF2 /* WidgetData.swift */; };
 		3B234C3D90BC1D0B9F5C1AC8 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A04D360A5296B5F97D809 /* WidgetModel.swift */; };
 		45795E54D194C016C8B58948 /* StromWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F74B3093C2CA6426C7C3F291 /* StromWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -54,6 +55,7 @@
 		8832347CFD9D901AD8C3A07C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 808DBEA0B08259107BF41B18 /* Localizable.xcstrings */; };
 		8CE1DFE7AC7B03C9D053A769 /* ResearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */; };
 		98D2697AAE6C3C83DAC9DF57 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0964F2C76176FDC210CA534 /* SampleData.swift */; };
+		9C83BEC0C8285AFCA2423523 /* HostWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AAC4948866B65EE8A27EDB /* HostWindowTests.swift */; };
 		9D3606F766DD7E07EA652770 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
 		A5082984F8A106A26112D6FD /* ContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E88D069CC2E0223314369 /* ContractTests.swift */; };
 		A7A19DC14DD977CA4718CF5A /* research-sample-index.json in Resources */ = {isa = PBXBuildFile; fileRef = 42628A02D1BC745CD2097730 /* research-sample-index.json */; };
@@ -67,6 +69,7 @@
 		C81D1A81C6D74FDC6406E00C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
 		CAF91CE90A5AB0C6326A6EA1 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0964F2C76176FDC210CA534 /* SampleData.swift */; };
 		CCE0EAF6EA31644ED8940319 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
+		CEA64CCFD8DDA3BB74CB5E8E /* HostWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CCBD694DFF14DE0DE86A06 /* HostWindow.swift */; };
 		CF7832DD8CB955F7FE8BD536 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A04D360A5296B5F97D809 /* WidgetModel.swift */; };
 		D75788442FA016BC7F857A27 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
 		D79984E2F46B804A9A0507E6 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8F685F3060A8D316013E41 /* SnapshotTests.swift */; };
@@ -126,6 +129,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03AAC4948866B65EE8A27EDB /* HostWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostWindowTests.swift; sourceTree = "<group>"; };
 		046E88D069CC2E0223314369 /* ContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTests.swift; sourceTree = "<group>"; };
 		09E3C830F42A757BA8E21B90 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		0AD1DF754B37CF32CAD4A56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		549E67626E306BC371F18F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchIntent.swift; sourceTree = "<group>"; };
 		6675912E21BDAFAF2002D953 /* MirrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorTests.swift; sourceTree = "<group>"; };
+		67CCBD694DFF14DE0DE86A06 /* HostWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostWindow.swift; sourceTree = "<group>"; };
 		7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchStore.swift; sourceTree = "<group>"; };
 		808DBEA0B08259107BF41B18 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		83EB4A231251F921BB09EC50 /* StromWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StromWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				046E88D069CC2E0223314369 /* ContractTests.swift */,
+				03AAC4948866B65EE8A27EDB /* HostWindowTests.swift */,
 				F801086D719C72ECE6A553B0 /* LayoutLanguageTests.swift */,
 				6675912E21BDAFAF2002D953 /* MirrorTests.swift */,
 				9E8F685F3060A8D316013E41 /* SnapshotTests.swift */,
@@ -273,6 +279,7 @@
 				0AD1DF754B37CF32CAD4A56B /* Assets.xcassets */,
 				BC1EA9E81A0F7789D28B966B /* HostModel.swift */,
 				2B70A6CFD4D2E5C6E495E2C8 /* HostViews.swift */,
+				67CCBD694DFF14DE0DE86A06 /* HostWindow.swift */,
 				3CA327330DD2E6FC52978DB3 /* Info.plist */,
 				89606785C6AD3C414A1BA5AA /* StromWidget.entitlements */,
 			);
@@ -499,6 +506,8 @@
 				813B22DB0F3BE8F0FC10E738 /* Findings.swift in Sources */,
 				31C1CBA7CE04B902005E9D4A /* HostModel.swift in Sources */,
 				7CFA8BB8FFA1861EA1B2AEEC /* HostViews.swift in Sources */,
+				CEA64CCFD8DDA3BB74CB5E8E /* HostWindow.swift in Sources */,
+				9C83BEC0C8285AFCA2423523 /* HostWindowTests.swift in Sources */,
 				207E82DEB2D16F7FFAF87B10 /* LayoutLanguageTests.swift in Sources */,
 				E564B4DDC83DFD019193479E /* Mirror.swift in Sources */,
 				E6963AE079F187DF91EE8D21 /* MirrorTests.swift in Sources */,
@@ -547,6 +556,7 @@
 				30754033EDA198AB8B06FCA3 /* Findings.swift in Sources */,
 				2027F4E414F4D735FF44790F /* HostModel.swift in Sources */,
 				7FDAB959C8F630E1D075104E /* HostViews.swift in Sources */,
+				35EED9A973767E73307068F9 /* HostWindow.swift in Sources */,
 				14B2A1BDBCF34B624B15FF1F /* Mirror.swift in Sources */,
 				60B1C2BC167F6E67B5750C91 /* ResearchIntent.swift in Sources */,
 				DB4F1B7D6D55C9279C6FA8C2 /* ResearchStore.swift in Sources */,

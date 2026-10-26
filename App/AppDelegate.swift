@@ -39,16 +39,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         if isDefaultLaunch && !handledURL { showMainWindow() }
     }
 
+    /// A click in the Dock always brings the window up, also when it exists but is minimised, hidden or behind.
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        if !flag { showMainWindow() }
-        return true
+        showMainWindow()
+        return false
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {
         if mainWindow?.isVisible == true { refresh() }
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        HostLifecycle.quitsAfterLastWindowClosed
+    }
 
     // MARK: Links from the widget (§7)
 
@@ -71,8 +74,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 DispatchQueue.main.async {
                     if error != nil {
                         self?.showOpenFailed(address: target, what: label)
-                    } else if self?.mainWindow?.isVisible != true {
-                        NSApp.hide(nil)
+                    } else if HostLifecycle.quitsAfterOpeningLink(windows: [self?.mainWindow, self?.failedWindow]) {
+                        NSApp.terminate(nil)
                     }
                 }
             }
@@ -88,11 +91,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                                       NSPasteboard.general.setString(address, forType: .string)
                                   },
                                   onClose: { [weak self] in self?.failedWindow?.close() })
-        let window = NSWindow(contentRect: .zero, styleMask: [.titled, .closable], backing: .buffered, defer: false)
+        let content = NSHostingView(rootView: view)
+        content.sizingOptions = [.intrinsicContentSize]
+        let window = HostWindow.make(content: content, styleMask: [.titled, .closable])
         window.titleVisibility = .hidden
         window.titlebarAppearsTransparent = true
-        window.isReleasedWhenClosed = false
-        window.contentView = NSHostingView(rootView: view)
         window.center()
         failedWindow = window
         NSApp.activate(ignoringOtherApps: true)
@@ -103,23 +106,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func showMainWindow() {
         if mainWindow == nil {
-            let window = NSWindow(contentRect: .zero, styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView],
-                                  backing: .buffered, defer: false)
+            let view = NSHostingView(rootView: HostMainView(snapshot: snapshot, actions: actions))
+            view.sizingOptions = [.intrinsicContentSize]
+            let window = HostWindow.make(content: view, styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView])
             window.titleVisibility = .hidden
             window.titlebarAppearsTransparent = true
             window.isMovableByWindowBackground = true
-            window.isReleasedWhenClosed = false
             window.delegate = self
-            let view = NSHostingView(rootView: HostMainView(snapshot: snapshot, actions: actions))
-            view.sizingOptions = [.intrinsicContentSize]
-            window.contentView = view
             hosting = view
             mainWindow = window
         }
+        guard let window = mainWindow else { return }
         refresh()
-        mainWindow?.center()
+        HostWindow.prepareToShow(window)
+        NSApp.unhide(nil)
         NSApp.activate(ignoringOtherApps: true)
-        mainWindow?.makeKeyAndOrderFront(nil)
+        window.makeKeyAndOrderFront(nil)
     }
 
     private var actions: HostActions {
@@ -167,6 +169,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private func apply(_ new: HostSnapshot) {
         snapshot = new
         hosting?.rootView = HostMainView(snapshot: new, actions: actions)
+        // The list length changes the height (§8: height by content).
+        if let window = mainWindow { HostWindow.fit(window) }
     }
 
     /// 8b: the folder cannot be read; the user points to it, the helper then reads from there.
