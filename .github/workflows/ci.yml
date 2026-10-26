@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build and test
+    # The project needs Xcode 26.
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Toolchain
+        run: xcodebuild -version
+
+      - name: Changelogs
+        # Every version in CHANGELOG.md has its notes in Czech and German too.
+        run: |
+          for v in $(sed -n 's/^## \([0-9][0-9.]*\)$/\1/p' CHANGELOG.md); do
+            for f in CHANGELOG.cs.md CHANGELOG.de.md; do
+              grep -qx "## $v" "$f" || { echo "::error::$f has no notes for $v"; exit 1; }
+            done
+          done
+          grep -qx "## $(cat VERSION)" CHANGELOG.md || { echo "::error::CHANGELOG.md has no notes for $(cat VERSION)"; exit 1; }
+
+      - name: Build and test
+        # Signed ad hoc: the runner has no certificate of the team.
+        run: |
+          set -o pipefail
+          xcodebuild -project StromWidget.xcodeproj -scheme StromWidget -configuration Debug \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= \
+            build test 2>&1 | tee build.log | grep -E '^(\*\*|Test Suite .* (passed|failed)|.*error:)' || true
+          grep -q '\*\* TEST SUCCEEDED \*\*' build.log
+
+      - name: Build log
+        if: failure()
+        run: tail -n 200 build.log
