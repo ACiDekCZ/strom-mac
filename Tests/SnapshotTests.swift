@@ -133,6 +133,67 @@ final class SnapshotTests: XCTestCase {
         }
     }
 
+    /// No text from the data widens the layout: with extreme texts (a long custom kind without a text, a long tree name,
+    /// line, task and pending) every size keeps its content inside the margins, as do all design states.
+    func testExtremeTextsStayInside() throws {
+        var t = SampleData.tree(.b)
+        t.treeName = "Lhotákovi ze Lhoty a okolí, jejich sousedé, kmotři a celé široké příbuzenstvo z okolních vesnic a měst"
+        t.now?.lines[0].title = "PředciBořivojeLhotákaSládkaZeLhotyAJehoManželkyDobromilyRozenéLhotákovéZeLhotky"
+        t.now?.lines[0].task = "Hledat křest v matrice Lhota 1780–1790, farnost Lhota, svazek N, indexy a ohlášky celé farnosti Lhota"
+        t.findings?.items.insert(WidgetData.Finding(kind: "fact", fact: "other",
+                                                    label: "Velmi dlouhý vlastní druh nálezu Dobromily Lhotákové ze Lhoty bez dalšího textu a bez konce",
+                                                    text: nil, at: SampleData.at(14, 32)), at: 0)
+        t.findings?.items.insert(WidgetData.Finding(kind: "fact", fact: "other",
+                                                    label: "Velmi dlouhý vlastní druh nálezu Bořivoje Lhotáka ze Lhoty s textem",
+                                                    text: "Bořivoj Lhoták, sládek v panském pivovaru ve Lhotě", at: SampleData.at(14, 31)), at: 0)
+        t.pending?.items[0].text = "RozhodnoutRozpor:DvěRůznáDataNarozeníDobromilyLhotákovéVMatriceAVIndexuFarnostiLhota"
+        let m = WidgetModelBuilder.build(index: .ok(SampleData.index()), tree: .ok(t), settings: WidgetSettings(treeKey: SampleData.treeKey),
+                                         now: SampleData.at(14, 35), timeZone: SampleData.timeZone)
+        XCTAssertNil(m.rows.first?.text)
+        for family in StromFamily.allCases {
+            for scheme in [ColorScheme.light, .dark] {
+                let file = "extreme-\(name(family))-\(scheme == .dark ? "dark" : "light")"
+                try assertInsideMargins(try render(card(m, family, scheme), file), family, file)
+            }
+            for state in SampleData.State.allCases {
+                let file = "margins-\(name(family))-\(state.rawValue)"
+                try assertInsideMargins(try render(card(SampleData.model(state), family, .light), file), family, file)
+            }
+        }
+    }
+
+    /// The margin band of a card (between its edge and the content) holds only the background. The rounded corners
+    /// are left out; above and below, accents of the first and last line may reach up to 3 pt into the margin.
+    private func assertInsideMargins(_ image: NSImage, _ family: StromFamily, _ file: String) throws {
+        let cg = try XCTUnwrap(image.cgImage(forProposedRect: nil, context: nil, hints: nil))
+        let w = cg.width, h = cg.height
+        var px = [UInt8](repeating: 0, count: w * h * 4)
+        let ctx = try XCTUnwrap(CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4,
+                                          space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+        ctx.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+        // The bitmap's first row is the top of the image.
+        func pixel(_ x: Int, _ y: Int) -> [Int] {
+            let i = (y * w + x) * 4
+            return (0..<4).map { Int(px[i + $0]) }
+        }
+        let scale = w / Int(family.designSize.width)
+        let side = Int(family.designPadding) * scale - scale
+        let band = Int(family.designPadding) * scale - 3 * scale
+        let corner = 22 * scale
+        let bg = pixel(w / 2, scale)
+        var stray: [(Int, Int)] = []
+        func check(_ x: Int, _ y: Int) {
+            if zip(pixel(x, y), bg).contains(where: { abs($0 - $1) > 6 }) { stray.append((x / scale, y / scale)) }
+        }
+        for y in corner..<(h - corner) {
+            for x in scale..<side { check(x, y); check(w - 1 - x, y) }
+        }
+        for x in corner..<(w - corner) {
+            for y in scale..<band { check(x, y); check(x, h - 1 - y) }
+        }
+        XCTAssertTrue(stray.isEmpty, "\(file): content in the margin at \(stray.prefix(5).map { "(\($0.0), \($0.1))" }.joined(separator: " "))")
+    }
+
     /// The research's own sample (`widget-vzor.json`).
     func testResearchSample() throws {
         let bundle = Bundle(for: Self.self)

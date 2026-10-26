@@ -5,6 +5,11 @@
 Změny každé verze ve zkratce. Ke stažení na
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
+## Unreleased
+
+- **Ani dlouhé texty už widget nerozhodí.** Také dlouhý druh nálezu (třeba vlastní druh zápisu) končí „…“ jako
+  ostatní texty a logo, název stromu i časy zůstávají ve všech velikostech uvnitř okrajů.
+
 ## 0.1.1
 
 - **Odkazy se otevřou v nainstalované aplikaci Strom.** Klik na widget, řádek nebo odkaz v aplikaci Strom Widget

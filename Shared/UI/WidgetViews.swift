@@ -40,7 +40,8 @@ struct StromWidgetView: View {
             case .extraLarge: ExtraLargeView(m: model)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        // `minWidth`/`minHeight` 0: content that does not fit stays at the top left (cut off at the end), not centered across the margins.
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .environment(\.stromLinksEnabled, family != .small)
         .environment(\.locale, model.lang.locale)
     }
@@ -146,42 +147,52 @@ private struct SmallView: View {
                     MessageBlock(m: m, family: .small)
                     Spacer(minLength: 0)
                 } else {
-                    HStack(spacing: 7) {
-                        StatusShapeView(shape: m.shape, size: 10)
-                        Text(m.statusShort).font(.sf(17, .semibold)).foregroundStyle(ink.text).lineLimit(1)
+                    // A line title on two lines only while everything fits; otherwise one line ending with „…“.
+                    ViewThatFits(in: .vertical) {
+                        status(ink, titleLines: 2)
+                        status(ink, titleLines: 1)
                     }
-                    .padding(.top, 5)
-                    Text(m.lines.first?.title ?? m.statusSentence ?? "")
-                        .font(.sf(12.5))
-                        .foregroundStyle(ink.text)
-                        .lineLimit(2)
-                        .fixedSize(horizontal: false, vertical: true)
-                    if let second = m.smallSecond {
-                        Text(second)
-                            .font(.sf(11))
-                            .foregroundStyle(m.smallSecondIsPause ? ink.pauseText : ink.faint)
-                            .lineLimit(1)
+                }
+            }
+        }
+    }
+
+    private func status(_ ink: Ink, titleLines: Int) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            HStack(spacing: 7) {
+                StatusShapeView(shape: m.shape, size: 10)
+                Text(m.statusShort).font(.sf(17, .semibold)).foregroundStyle(ink.text).lineLimit(1)
+            }
+            .padding(.top, 5)
+            Text(m.lines.first?.title ?? m.statusSentence ?? "")
+                .font(.sf(12.5))
+                .foregroundStyle(ink.text)
+                .lineLimit(titleLines)
+                .fixedSize(horizontal: false, vertical: true)
+            if let second = m.smallSecond {
+                Text(second)
+                    .font(.sf(11))
+                    .foregroundStyle(m.smallSecondIsPause ? ink.pauseText : ink.faint)
+                    .lineLimit(1)
+            }
+            Spacer(minLength: 0)
+            if m.showSmallCounts {
+                HStack(alignment: .top, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("\(m.rows.count)").font(.sf(26, .semibold).monospacedDigit()).foregroundStyle(ink.text)
+                        Text(m.smallFindingsLabel).font(.sf(10.5)).foregroundStyle(ink.muted).lineLimit(1)
                     }
-                    Spacer(minLength: 0)
-                    if m.showSmallCounts {
-                        HStack(alignment: .top, spacing: 8) {
-                            VStack(alignment: .leading, spacing: 0) {
-                                Text("\(m.rows.count)").font(.sf(26, .semibold).monospacedDigit()).foregroundStyle(ink.text)
-                                Text(m.smallFindingsLabel).font(.sf(10.5)).foregroundStyle(ink.muted).lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack(spacing: 5) {
+                            Text("\(m.pendingCount)").font(.sf(26, .semibold).monospacedDigit()).foregroundStyle(ink.text)
+                            if m.pendingCount > 0 {
+                                Circle().fill(ink.pause).frame(width: 7, height: 7).stromAccentable()
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            VStack(alignment: .leading, spacing: 0) {
-                                HStack(spacing: 5) {
-                                    Text("\(m.pendingCount)").font(.sf(26, .semibold).monospacedDigit()).foregroundStyle(ink.text)
-                                    if m.pendingCount > 0 {
-                                        Circle().fill(ink.pause).frame(width: 7, height: 7).stromAccentable()
-                                    }
-                                }
-                                Text(m.lang.strings.smallPending).font(.sf(10.5)).foregroundStyle(ink.muted).lineLimit(1)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
+                        Text(m.lang.strings.smallPending).font(.sf(10.5)).foregroundStyle(ink.muted).lineLimit(1)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
         }
@@ -299,9 +310,9 @@ private struct OneLineRow: View {
             Linked(link: row.link) {
                 HStack(spacing: xl ? 7 : 6) {
                     GlyphTile(glyph: row.glyph, size: xl ? 17 : 16, corner: 4, fontSize: xl ? 10 : 9.5)
-                    HStack(spacing: 0) {
+                    KindTextLayout {
                         Text(row.kindLabel).font(.sf(xl ? 12 : 11.5, .semibold)).foregroundStyle(ink.text)
-                            .lineLimit(1).fixedSize().layoutPriority(1)
+                            .lineLimit(1).truncationMode(.tail)
                         if let text = row.text {
                             Text(" " + text).font(.sf(xl ? 12 : 11.5)).foregroundStyle(ink.text)
                                 .lineLimit(1).truncationMode(.tail)
@@ -313,6 +324,34 @@ private struct OneLineRow: View {
                 .frame(height: xl ? 17 : 16)
             }
         }
+    }
+}
+
+/// Kind word and text of a finding on one line, never wider than offered. The kind word goes first but takes at most
+/// `kindShare` of the width while a text follows; a longer kind word (a custom event type) ends with „…“ like the text.
+struct KindTextLayout: Layout {
+    var kindShare: CGFloat = 0.6
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let widths = self.widths(proposal.width, subviews)
+        let height = zip(subviews, widths).map { $0.sizeThatFits(ProposedViewSize(width: $1, height: proposal.height)).height }.max() ?? 0
+        return CGSize(width: widths.reduce(0, +), height: height)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        var x = bounds.minX
+        for (view, width) in zip(subviews, widths(bounds.width, subviews)) {
+            view.place(at: CGPoint(x: x, y: bounds.midY), anchor: .leading, proposal: ProposedViewSize(width: width, height: bounds.height))
+            x += width
+        }
+    }
+
+    private func widths(_ available: CGFloat?, _ subviews: Subviews) -> [CGFloat] {
+        let ideal = subviews.map { $0.sizeThatFits(.unspecified).width }
+        guard let available, ideal.reduce(0, +) > available else { return ideal }
+        guard ideal.count > 1 else { return [min(ideal[0], available)] }
+        let kind = min(ideal[0], max(available * kindShare, available - ideal[1]))
+        return [kind, max(available - kind, 0)]
     }
 }
 
