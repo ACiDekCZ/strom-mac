@@ -48,13 +48,29 @@ final class MirrorTests: XCTestCase {
         XCTAssertFalse(r.wrote)
         XCTAssertTrue(r.changed.isEmpty)
 
-        // Heartbeat (generatedAt and lastActiveAt move): written, but not a change.
+        // Heartbeat (generatedAt, lastActiveAt and the findings' window move, also in the index): written, not a change.
         tree.generatedAt += 60
         tree.lastActiveAt = tree.generatedAt
+        tree.findings?.windowStart = tree.generatedAt - 24 * 3600
         try write(tree)
+        var idx = SampleData.index()
+        idx.trees[0].generatedAt = tree.generatedAt
+        idx.trees[0].lastActiveAt = tree.generatedAt
+        try writeIndex(idx)
         r = mirror.sync()
         XCTAssertTrue(r.wrote)
         XCTAssertTrue(r.changed.isEmpty)
+        XCTAssertTrue(r.heartbeatOnly)
+
+        // Only the pause moves: a change.
+        tree.now?.lines[0].pausedUntil = SampleData.at(15, 10)
+        try write(tree)
+        r = mirror.sync()
+        XCTAssertEqual(r.changed, [tree.treeKey])
+        XCTAssertFalse(r.heartbeatOnly)
+        tree.now?.lines[0].pausedUntil = nil
+        try write(tree)
+        XCTAssertEqual(mirror.sync().changed, [tree.treeKey], "the pause ends early")
 
         // Teď changes: a change, not urgent.
         tree.now?.lines[0].task = "Projít sňatky, Lhota 1805–1830"
@@ -130,5 +146,47 @@ final class MirrorTests: XCTestCase {
         XCTAssertFalse(t.flush(now: t0 + 120), "nothing pending")
         XCTAssertTrue(t.request(now: t0 + 61, urgent: true), "a new finding reloads at once")
         XCTAssertTrue(t.request(now: t0 + 130, urgent: false))
+    }
+
+    /// Heartbeats alone keep the widget fresh once per 10 min, not once per heartbeat.
+    func testThrottleHeartbeat() {
+        var t = ReloadThrottle()
+        let t0 = SampleData.at(14, 0)
+        XCTAssertTrue(t.heartbeat(now: t0), "first sync after start reloads")
+        var reloads = 0
+        for minute in 1...60 where t.heartbeat(now: t0 + Double(minute) * 60) { reloads += 1 }
+        XCTAssertEqual(reloads, 6, "heartbeat every 60 s: 6 reloads an hour")
+        XCTAssertTrue(t.request(now: t0 + 3700, urgent: false), "a visible change still reloads")
+        XCTAssertFalse(t.heartbeat(now: t0 + 3760), "the change counts as the fresh reload")
+    }
+
+    /// The helper reloads through the host app: its program, found from the helper's place in the bundle.
+    func testHostExecutable() throws {
+        let host = root.appendingPathComponent("Strom Widget.app/Contents")
+        let helper = host.appendingPathComponent("Library/LoginItems/StromWidgetHelper.app")
+        try FileManager.default.createDirectory(at: host.appendingPathComponent("MacOS"), withIntermediateDirectories: true)
+        try FileManager.default.createDirectory(at: helper, withIntermediateDirectories: true)
+        func info(_ id: String) throws {
+            let plist: [String: Any] = ["CFBundleIdentifier": id, "CFBundleExecutable": "Strom Widget", "CFBundlePackageType": "APPL"]
+            try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
+                .write(to: host.appendingPathComponent("Info.plist"))
+        }
+        try info(HostReload.hostIdentifier)
+        try Data().write(to: host.appendingPathComponent("MacOS/Strom Widget"))
+        XCTAssertEqual(HostReload.hostExecutable(helperBundle: helper)?.resolvingSymlinksInPath().path,
+                       host.appendingPathComponent("MacOS/Strom Widget").resolvingSymlinksInPath().path)
+        XCTAssertNil(HostReload.hostExecutable(helperBundle: root.appendingPathComponent("StromWidgetHelper.app")),
+                     "a helper outside the host app has no host")
+    }
+
+    func testOtherHostIsNotRun() throws {
+        let host = root.appendingPathComponent("Other.app/Contents")
+        let helper = host.appendingPathComponent("Library/LoginItems/StromWidgetHelper.app")
+        try FileManager.default.createDirectory(at: host.appendingPathComponent("MacOS"), withIntermediateDirectories: true)
+        try FileManager.default.createDirectory(at: helper, withIntermediateDirectories: true)
+        let plist: [String: Any] = ["CFBundleIdentifier": "devcheck.other", "CFBundleExecutable": "Other", "CFBundlePackageType": "APPL"]
+        try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0).write(to: host.appendingPathComponent("Info.plist"))
+        try Data().write(to: host.appendingPathComponent("MacOS/Other"))
+        XCTAssertNil(HostReload.hostExecutable(helperBundle: helper))
     }
 }

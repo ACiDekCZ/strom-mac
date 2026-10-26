@@ -99,7 +99,7 @@ enum SampleData {
         let L = lines(lang)
         func line(_ i: Int, paused: Bool = false) -> WidgetData.Line {
             WidgetData.Line(dir: L[i].dir, title: L[i].title, titleNoNames: L[i].anon, task: L[i].task, since: L[i].since,
-                            pausedUntil: paused ? at(14, 30) : nil, openUrl: base)
+                            pausedUntil: paused ? at(14, 50) : nil, openUrl: base)
         }
         var lineList: [WidgetData.Line] = [line(0)]
         var running = true

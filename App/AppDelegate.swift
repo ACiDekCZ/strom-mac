@@ -6,6 +6,8 @@ import WidgetKit
 @main
 enum StromWidgetMain {
     static func main() {
+        // Run by the helper: ask WidgetKit for a reload, then quit — no window, no Dock icon.
+        if CommandLine.arguments.contains(HostReload.argument) { HostReload.run() }
         let app = NSApplication.shared
         let delegate = AppDelegate()
         app.delegate = delegate
@@ -70,13 +72,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 showMainWindow()
                 return
             }
-            NSWorkspace.shared.open(targetURL, configuration: NSWorkspace.OpenConfiguration()) { [weak self] _, error in
-                DispatchQueue.main.async {
-                    if error != nil {
-                        self?.showOpenFailed(address: target, what: label)
-                    } else if HostLifecycle.quitsAfterOpeningLink(windows: [self?.mainWindow, self?.failedWindow]) {
-                        NSApp.terminate(nil)
-                    }
+            // The installed Strom app first, then a Chromium browser, the default browser last (K2.3).
+            AppOpener.standard.open(targetURL) { [weak self] opened in
+                if !opened {
+                    self?.showOpenFailed(address: target, what: label)
+                } else if HostLifecycle.quitsAfterOpeningLink(windows: [self?.mainWindow, self?.failedWindow]) {
+                    NSApp.terminate(nil)
                 }
             }
         }
@@ -133,7 +134,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             },
             allowAccess: { [weak self] in self?.chooseResearchFolder() },
             uninstall: { [weak self] in self?.uninstall() },
-            openHelp: { NSWorkspace.shared.open($0) })
+            openHelp: { AppOpener.standard.open($0) { _ in } })
     }
 
     private func currentLang() -> Lang {

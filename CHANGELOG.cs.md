@@ -5,6 +5,14 @@
 Změny každé verze ve zkratce. Ke stažení na
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
+## Unreleased
+
+- **Odkazy se otevřou v nainstalované aplikaci Strom.** Klik na widget, řádek nebo odkaz v aplikaci Strom Widget
+  otevře aplikaci Strom nainstalovanou z Chromu nebo jiného prohlížeče Chromium (pro adresy bety Strom Beta); bez ní
+  kartu toho prohlížeče nebo Chromu, a teprve potom výchozí prohlížeč.
+- **Widget drží krok s výzkumem.** Pauza, čas, linie, „Čeká“ a nálezy se projeví zhruba do minuty a pauza, jejíž čas
+  uplynul, se už neukazuje.
+
 ## 0.1.0
 
 *První verze. Potřebuje macOS 14 nebo novější a Strom výzkum 1.21 nebo novější na tomtéž Macu.*

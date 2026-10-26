@@ -46,7 +46,11 @@ targets:
     platform: macOS
     sources:
       - Helper
-      - Shared
+      # Without the widget's App Intents: the helper is no part of the widget's configuration, and a second
+      # copy of the intent metadata only churns the system's App Intents registry.
+      - path: Shared
+        excludes:
+          - Logic/ResearchIntent.swift
     settings:
       base:
         PRODUCT_NAME: StromWidgetHelper
@@ -76,6 +80,7 @@ targets:
       - App/HostModel.swift
       - App/HostViews.swift
       - App/HostWindow.swift
+      - App/AppOpener.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: info.stromapp.widget.tests

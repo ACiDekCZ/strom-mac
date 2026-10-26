@@ -5,6 +5,14 @@
 Die Änderungen jeder Version in Kürze. Die Downloads stehen bei
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
+## Unreleased
+
+- **Links öffnen sich in der installierten Strom-App.** Ein Klick auf das Widget, eine Zeile oder einen Link in der
+  App Strom Widget öffnet die aus Chrome oder einem anderen Chromium-Browser installierte Strom-App (Strom Beta für
+  Beta-Adressen); ohne sie einen Tab dieses Browsers oder von Chrome, und erst dann den Standardbrowser.
+- **Das Widget hält mit der Forschung Schritt.** Pause, Uhrzeit, Linien, „Wartet“ und Funde erscheinen in etwa einer
+  Minute, und eine Pause, deren Zeit vorbei ist, wird nicht mehr angezeigt.
+
 ## 0.1.0
 
 *Die erste Version. Benötigt macOS 14 oder neuer und Strom Ahnenforschung 1.21 oder neuer auf demselben Mac.*

@@ -25,10 +25,10 @@ struct Provider: AppIntentTimelineProvider {
     func timeline(for configuration: SelectResearchIntent, in context: Context) async -> Timeline<ResearchEntry> {
         let now = Date()
         var entries = [entry(for: configuration, at: now)]
-        // Switch to „údaje starší než 15 min“ on time even without a reload (§0 Obnova).
+        // End of a pause and „údaje starší než 15 min“ on time even without a reload (§0 Obnova).
         let tree = configuration.research.map { ResearchStore.standard.loadTree($0.id) }
-        if let data = tree?.value, let staleAt = WidgetModelBuilder.staleEntryDate(data, now: now) {
-            entries.append(entry(for: configuration, at: staleAt))
+        if let data = tree?.value {
+            entries += WidgetModelBuilder.entryDates(data, now: now).map { entry(for: configuration, at: $0) }
         }
         return Timeline(entries: entries, policy: .after(now.addingTimeInterval(Self.refreshPolicyInterval)))
     }

@@ -5,6 +5,14 @@ English · [Čeština](CHANGELOG.cs.md) · [Deutsch](CHANGELOG.de.md)
 The changes of each version in short. The downloads are on
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
+## Unreleased
+
+- **Links open in the installed Strom app.** A click on the widget, a row or a link in the Strom Widget app opens the
+  Strom app installed from Chrome or another Chromium browser (Strom Beta for beta addresses); without it, a tab of
+  that browser or of Chrome, and only then the default browser.
+- **The widget keeps up with the research.** A pause, the time, the lines, “Waiting” and the findings show within
+  about a minute, and a pause whose time has passed no longer shows.
+
 ## 0.1.0
 
 *The first version. Needs macOS 14 or later and Strom Research 1.21 or later on the same Mac.*

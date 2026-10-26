@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		000CB705793DE6D94E029B62 /* TimeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB046DD3077318B1BB37C4B /* TimeText.swift */; };
 		04C5485BED67FE67CADB358A /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30C9B68C9D24875A82EAC /* Mirror.swift */; };
+		09EAECE9437DEB264EADE63E /* HostReload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4835A769CDECDAA1EDCA /* HostReload.swift */; };
 		09FF0838FFC855718D6C85CC /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3C830F42A757BA8E21B90 /* Strings.swift */; };
 		1057C9476A0A4D579EB0A8EF /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30C9B68C9D24875A82EAC /* Mirror.swift */; };
 		133DC839F617C1073A47063E /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
 		14B2A1BDBCF34B624B15FF1F /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF30C9B68C9D24875A82EAC /* Mirror.swift */; };
 		162CAD0B98E6A6054FA2B4F3 /* WidgetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E53281FD9F3350869032D1 /* WidgetLink.swift */; };
 		17B95AC9F4C48DD61C56C583 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
+		180EA203693F618172A18339 /* AppOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F8B8B1DAF4C4CF611CD68 /* AppOpener.swift */; };
 		1B19BF3E41C18117AD82DBC2 /* StromWidgetHelper.app in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 9F21773EF00E57F86CA66D84 /* StromWidgetHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2027F4E414F4D735FF44790F /* HostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EA9E81A0F7789D28B966B /* HostModel.swift */; };
 		207E82DEB2D16F7FFAF87B10 /* LayoutLanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801086D719C72ECE6A553B0 /* LayoutLanguageTests.swift */; };
@@ -34,6 +36,7 @@
 		45795E54D194C016C8B58948 /* StromWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F74B3093C2CA6426C7C3F291 /* StromWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		48A2FD74A5EABA1ABE7168D7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
 		494247E49045585F1E794CB2 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
+		4BC732C71F10AFFF118BCBD1 /* HostReload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4835A769CDECDAA1EDCA /* HostReload.swift */; };
 		4F702A4393E937CC847C8754 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3C830F42A757BA8E21B90 /* Strings.swift */; };
 		503163D60EE5E4F7935F2CF9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
 		5218266DA1A2E42DE4D22FCD /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
@@ -45,7 +48,9 @@
 		60B1C2BC167F6E67B5750C91 /* ResearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */; };
 		62EA7A9960698339BC1DBA89 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3C830F42A757BA8E21B90 /* Strings.swift */; };
 		6725D7A8091F7E10FB9C69BA /* TimeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB046DD3077318B1BB37C4B /* TimeText.swift */; };
+		6DD3905DD56FF8C69188306B /* HostReload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4835A769CDECDAA1EDCA /* HostReload.swift */; };
 		74EFFA98992B243409475EC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
+		7ADFF801080C536734080815 /* AppOpenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920754FF96575F10A9BBC137 /* AppOpenerTests.swift */; };
 		7BF356C4761206EDC35375A7 /* ResearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */; };
 		7C3D13CDA78B01B9E3D6F7D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD1DF754B37CF32CAD4A56B /* Assets.xcassets */; };
 		7CFA8BB8FFA1861EA1B2AEEC /* HostViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70A6CFD4D2E5C6E495E2C8 /* HostViews.swift */; };
@@ -64,6 +69,7 @@
 		B5F9299715A00693C6E5A741 /* ResearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */; };
 		BBE106A895BE429D639EE38E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
 		BCA03A505BD1A6A8161776DD /* contract-example.json in Resources */ = {isa = PBXBuildFile; fileRef = F27D1500E9F1303EDBA23667 /* contract-example.json */; };
+		BF13DA7D41CFABD42F1A02DE /* HostReload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F4835A769CDECDAA1EDCA /* HostReload.swift */; };
 		BF5CBF92DA9B12756E703C19 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 808DBEA0B08259107BF41B18 /* Localizable.xcstrings */; };
 		C6A3DD5AD26772A993FC963E /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
 		C81D1A81C6D74FDC6406E00C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABDF70EC651EFC6DA145B9 /* Components.swift */; };
@@ -80,10 +86,10 @@
 		E6963AE079F187DF91EE8D21 /* MirrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6675912E21BDAFAF2002D953 /* MirrorTests.swift */; };
 		E8296BBA473E5C21DA497F18 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E73F3D68A445B815C8AAA /* Theme.swift */; };
 		E9D52F820222E98E421DD37E /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A04D360A5296B5F97D809 /* WidgetModel.swift */; };
-		EA9C42568772897C18B856C2 /* ResearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */; };
 		F2631276582F0E59C8FD1671 /* Findings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA879904B56ED7CA3606B27 /* Findings.swift */; };
 		F7C55186663AD1822CECC9F7 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE77F68EDBE7F2B641ECF7B /* WidgetViews.swift */; };
 		FD4E7D863663D7DC360D1826 /* StateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234DD9FE79C2E86DBC8E94B /* StateTests.swift */; };
+		FDF118A2911C2837A688BDEB /* AppOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F8B8B1DAF4C4CF611CD68 /* AppOpener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,10 +154,13 @@
 		6675912E21BDAFAF2002D953 /* MirrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorTests.swift; sourceTree = "<group>"; };
 		67CCBD694DFF14DE0DE86A06 /* HostWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostWindow.swift; sourceTree = "<group>"; };
 		7A66F2E2998D76B44E666FA0 /* ResearchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchStore.swift; sourceTree = "<group>"; };
+		7E0F8B8B1DAF4C4CF611CD68 /* AppOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpener.swift; sourceTree = "<group>"; };
 		808DBEA0B08259107BF41B18 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		83EB4A231251F921BB09EC50 /* StromWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StromWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		890261DF8BB29AD2FACD3F43 /* research-sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "research-sample.json"; sourceTree = "<group>"; };
 		89606785C6AD3C414A1BA5AA /* StromWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StromWidget.entitlements; sourceTree = "<group>"; };
+		8E7F4835A769CDECDAA1EDCA /* HostReload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostReload.swift; sourceTree = "<group>"; };
+		920754FF96575F10A9BBC137 /* AppOpenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenerTests.swift; sourceTree = "<group>"; };
 		94ABDF70EC651EFC6DA145B9 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		9E8F685F3060A8D316013E41 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
 		9F21773EF00E57F86CA66D84 /* StromWidgetHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StromWidgetHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +195,7 @@
 		27FAAE0277783CFFA3C32BB3 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				920754FF96575F10A9BBC137 /* AppOpenerTests.swift */,
 				046E88D069CC2E0223314369 /* ContractTests.swift */,
 				03AAC4948866B65EE8A27EDB /* HostWindowTests.swift */,
 				F801086D719C72ECE6A553B0 /* LayoutLanguageTests.swift */,
@@ -250,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				AFA879904B56ED7CA3606B27 /* Findings.swift */,
+				8E7F4835A769CDECDAA1EDCA /* HostReload.swift */,
 				1EF30C9B68C9D24875A82EAC /* Mirror.swift */,
 				5D6580E41901C65C48EC8C05 /* ResearchIntent.swift */,
 				09E3C830F42A757BA8E21B90 /* Strings.swift */,
@@ -276,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				4630548408260D1DAC78DFC2 /* AppDelegate.swift */,
+				7E0F8B8B1DAF4C4CF611CD68 /* AppOpener.swift */,
 				0AD1DF754B37CF32CAD4A56B /* Assets.xcassets */,
 				BC1EA9E81A0F7789D28B966B /* HostModel.swift */,
 				2B70A6CFD4D2E5C6E495E2C8 /* HostViews.swift */,
@@ -482,6 +494,7 @@
 			files = (
 				C81D1A81C6D74FDC6406E00C /* Components.swift in Sources */,
 				25D3671A37F3B8E73956923C /* Findings.swift in Sources */,
+				4BC732C71F10AFFF118BCBD1 /* HostReload.swift in Sources */,
 				1057C9476A0A4D579EB0A8EF /* Mirror.swift in Sources */,
 				7BF356C4761206EDC35375A7 /* ResearchIntent.swift in Sources */,
 				8CE1DFE7AC7B03C9D053A769 /* ResearchStore.swift in Sources */,
@@ -501,10 +514,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180EA203693F618172A18339 /* AppOpener.swift in Sources */,
+				7ADFF801080C536734080815 /* AppOpenerTests.swift in Sources */,
 				503163D60EE5E4F7935F2CF9 /* Components.swift in Sources */,
 				A5082984F8A106A26112D6FD /* ContractTests.swift in Sources */,
 				813B22DB0F3BE8F0FC10E738 /* Findings.swift in Sources */,
 				31C1CBA7CE04B902005E9D4A /* HostModel.swift in Sources */,
+				09EAECE9437DEB264EADE63E /* HostReload.swift in Sources */,
 				7CFA8BB8FFA1861EA1B2AEEC /* HostViews.swift in Sources */,
 				CEA64CCFD8DDA3BB74CB5E8E /* HostWindow.swift in Sources */,
 				9C83BEC0C8285AFCA2423523 /* HostWindowTests.swift in Sources */,
@@ -533,8 +549,8 @@
 				494247E49045585F1E794CB2 /* Components.swift in Sources */,
 				F2631276582F0E59C8FD1671 /* Findings.swift in Sources */,
 				576E98C83B487043CE0E2267 /* HelperMain.swift in Sources */,
+				BF13DA7D41CFABD42F1A02DE /* HostReload.swift in Sources */,
 				04C5485BED67FE67CADB358A /* Mirror.swift in Sources */,
-				EA9C42568772897C18B856C2 /* ResearchIntent.swift in Sources */,
 				60ADDA8DCF3B7AEE41107F12 /* ResearchStore.swift in Sources */,
 				CAF91CE90A5AB0C6326A6EA1 /* SampleData.swift in Sources */,
 				09FF0838FFC855718D6C85CC /* Strings.swift in Sources */,
@@ -552,9 +568,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7B2A5DD47346422B3A6405 /* AppDelegate.swift in Sources */,
+				FDF118A2911C2837A688BDEB /* AppOpener.swift in Sources */,
 				133DC839F617C1073A47063E /* Components.swift in Sources */,
 				30754033EDA198AB8B06FCA3 /* Findings.swift in Sources */,
 				2027F4E414F4D735FF44790F /* HostModel.swift in Sources */,
+				6DD3905DD56FF8C69188306B /* HostReload.swift in Sources */,
 				7FDAB959C8F630E1D075104E /* HostViews.swift in Sources */,
 				35EED9A973767E73307068F9 /* HostWindow.swift in Sources */,
 				14B2A1BDBCF34B624B15FF1F /* Mirror.swift in Sources */,

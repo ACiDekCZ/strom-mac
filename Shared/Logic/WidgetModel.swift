@@ -118,6 +118,25 @@ enum WidgetModelBuilder {
         return staleAt > now ? staleAt : nil
     }
 
+    /// A pause still running at `now`; one whose end has passed is over (no „pauza do“ with a past time).
+    static func activePause(_ line: WidgetData.Line, now: Date) -> Date? {
+        line.pausedUntil.flatMap { $0 > now ? $0 : nil }
+    }
+
+    /// The later dates at which the widget shows something else without new data: a pause ends, the data turns
+    /// stale. Extra timeline entries, so it changes on time even when WidgetKit delays the next reload.
+    static func entryDates(_ data: WidgetData, now: Date) -> [Date] {
+        var dates = Set<Date>()
+        if data.running {
+            for line in data.now?.lines ?? [] {
+                if let until = activePause(line, now: now) { dates.insert(until.addingTimeInterval(1)) }
+            }
+        }
+        if let staleAt = staleEntryDate(data, now: now) { dates.insert(staleAt) }
+        let horizon = now.addingTimeInterval(24 * 3600)
+        return dates.filter { $0 > now && $0 <= horizon }.sorted()
+    }
+
     /// Evaluation order of §4: first match wins (g, h, i, j, f, k, d, c, b, a; e combines with f–a).
     static func state(index: FileResult<ResearchIndex>, tree: FileResult<WidgetData>?, selectedKey: String?,
                       now: Date, findingsInWindow: Int) -> WidgetState {
@@ -138,7 +157,7 @@ enum WidgetModelBuilder {
             status = .stale
         } else if lines.isEmpty {
             status = .idle
-        } else if lines.allSatisfy({ $0.pausedUntil != nil }) {
+        } else if lines.allSatisfy({ activePause($0, now: now) != nil }) {
             status = .paused
         } else if lines.count >= 2 {
             status = .workingMany
@@ -245,9 +264,10 @@ enum WidgetModelBuilder {
                 }
                 // Without a name-free variant the task is left out rather than shown with names.
                 let task = hide ? line.taskNoNames : line.task
-                let paused = line.pausedUntil != nil
+                let pause = activePause(line, now: now)
+                let paused = pause != nil
                 var since: String?, sinceShort: String?
-                if let until = line.pausedUntil {
+                if let until = pause {
                     since = L.linePaused(tt.clock(until))
                     sinceShort = L.linePausedShort(tt.clock(until))
                 } else if let s = line.since {
@@ -264,7 +284,7 @@ enum WidgetModelBuilder {
                                         link: WidgetLink.to(line.openUrl, tree: data, label: title))
             }
             if allLines.count > 1 { m.linesCount = L.linesCount(allLines.count) }
-            if status == .paused, let until = allLines.compactMap(\.pausedUntil).min() {
+            if status == .paused, let until = allLines.compactMap({ activePause($0, now: now) }).min() {
                 m.smallSecond = L.subPauseUntil(tt.clock(until))
                 m.smallSecondIsPause = true
             } else if allLines.count > 1 {

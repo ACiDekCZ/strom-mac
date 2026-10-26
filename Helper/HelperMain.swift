@@ -1,5 +1,4 @@
 import AppKit
-import WidgetKit
 
 /// Login item without a window or menu bar icon: watches the research folder, mirrors it into the
 /// App Group and asks WidgetKit for reloads (§0 Obnova, §8 Pomocník).
@@ -64,12 +63,33 @@ final class HelperDelegate: NSObject, NSApplicationDelegate {
     private func sync() {
         guard let mirror else { return }
         let result = mirror.sync()
+        if result.heartbeatOnly {
+            if throttle.heartbeat(now: Date()) { reload() }
+            return
+        }
         guard !result.changed.isEmpty || !result.newFinding.isEmpty else { return }
         if throttle.request(now: Date(), urgent: !result.newFinding.isEmpty) { reload() }
     }
 
+    /// WidgetKit takes reloads only from the app that holds the widget, not from this helper (chronod: „Ignoring
+    /// restricted or unknown extension info.stromapp.widget.helper“). The host app's program is run without a
+    /// window to ask for it (`HostReload`).
     private func reload() {
-        WidgetCenter.shared.reloadTimelines(ofKind: WidgetKind.research)
+        guard let exe = HostReload.hostExecutable(helperBundle: Bundle.main.bundleURL) else {
+            NSLog("Strom Widget Helper: host app not found")
+            return
+        }
+        let p = Process()
+        p.executableURL = exe
+        p.arguments = [HostReload.argument]
+        p.standardInput = FileHandle.nullDevice
+        p.standardOutput = FileHandle.nullDevice
+        p.standardError = FileHandle.nullDevice
+        do {
+            try p.run()
+        } catch {
+            NSLog("Strom Widget Helper: reload failed: \(error.localizedDescription)")
+        }
     }
 }
 

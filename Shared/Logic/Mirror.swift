@@ -12,6 +12,8 @@ struct Mirror {
         var newFinding: Set<String> = []
         /// Something was written at all (including heartbeats).
         var wrote = false
+        /// Only heartbeat times moved: nothing the widget shows changed.
+        var heartbeatOnly: Bool { wrote && changed.isEmpty && newFinding.isEmpty }
         var sourceMissing = false
         var sourceNoAccess = false
     }
@@ -28,7 +30,11 @@ struct Mirror {
         case .ok(let idx):
             keys = idx.trees.map(\.treeKey).filter(ResearchPaths.isSafeKey)
             if let data = try? Data(contentsOf: source.appendingPathComponent(ResearchPaths.indexFileName)) {
-                if write(data, name: ResearchPaths.indexFileName) { result.wrote = true; result.changed.insert("") }
+                let old = ResearchStore(directories: [destination]).loadIndex().value
+                if write(data, name: ResearchPaths.indexFileName) {
+                    result.wrote = true
+                    if old.map({ Self.indexKey($0) }) != Self.indexKey(idx) { result.changed.insert("") }
+                }
             }
         case .outdated:
             // Keep the old file visible so the widget can say „Výzkum potřebuje aktualizaci“.
@@ -81,12 +87,25 @@ struct Mirror {
     static let emptyIndex = Data(#"{"schemaVersion":1,"trees":[]}"#.utf8)
 
     /// Everything except the heartbeat times, so a heartbeat alone does not count as a change
-    /// (the heartbeat refreshes `generatedAt` and, while running, `lastActiveAt`).
+    /// (the heartbeat refreshes `generatedAt`, the findings' `windowStart` and, while running, `lastActiveAt`).
     static func contentKey(_ d: WidgetData) -> WidgetData {
         var d = d
         d.generatedAt = .distantPast
         if d.running { d.lastActiveAt = nil }
+        d.findings?.windowStart = nil
         return d
+    }
+
+    /// The index without its heartbeat times (the research rewrites it with every heartbeat too).
+    static func indexKey(_ idx: ResearchIndex) -> ResearchIndex {
+        var idx = idx
+        idx.trees = idx.trees.map { t in
+            var t = t
+            t.generatedAt = nil
+            if t.running ?? true { t.lastActiveAt = nil }
+            return t
+        }
+        return idx
     }
 
     /// Atomic write; returns false when the destination already has the same bytes.
@@ -110,11 +129,22 @@ private extension FileResult {
     }
 }
 
-/// Decides when to ask WidgetKit for a reload: at once after a new finding, otherwise at most once per 60 s.
+/// Decides when to ask WidgetKit for a reload: at once after a new finding, after another visible change at most
+/// once per 60 s, after heartbeats alone once per 10 min (the header time and „older than 15 min“ stay true).
+/// Running research with a heartbeat every 60 s: about 6 reloads an hour plus one per visible change.
 struct ReloadThrottle {
     var minimumInterval: TimeInterval = 60
+    var keepFreshInterval: TimeInterval = 10 * 60
     private(set) var lastReload: Date?
     private(set) var pending = false
+
+    /// Only heartbeat times moved: a reload only when the widget has not been reloaded for a while.
+    mutating func heartbeat(now: Date) -> Bool {
+        guard lastReload.map({ now.timeIntervalSince($0) >= keepFreshInterval }) ?? true else { return false }
+        lastReload = now
+        pending = false
+        return true
+    }
 
     /// Returns true when a reload should happen now; otherwise remembers that one is due.
     mutating func request(now: Date, urgent: Bool) -> Bool {

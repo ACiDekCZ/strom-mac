@@ -58,7 +58,7 @@ final class StateTests: XCTestCase {
         XCTAssertEqual(state(index: idx, tree: .ok(SampleData.tree(.c))), .data(.paused, nothingNew: false))
         XCTAssertEqual(state(index: idx, tree: .ok(SampleData.tree(.b))), .data(.workingMany, nothingNew: false))
         t = SampleData.tree(.a)
-        t.now?.lines[0].pausedUntil = SampleData.at(14, 30)
+        t.now?.lines[0].pausedUntil = SampleData.at(14, 50)
         XCTAssertEqual(state(index: idx, tree: .ok(t)), .data(.paused, nothingNew: false))
     }
 
@@ -78,6 +78,41 @@ final class StateTests: XCTestCase {
         XCTAssertNil(WidgetModelBuilder.staleEntryDate(t, now: SampleData.generatedAt))
     }
 
+    /// A pause whose end has passed is over: no „pauza do“ with a past time, and the line counts as working.
+    func testPastPauseIsOver() {
+        var t = SampleData.tree(.c)
+        t.generatedAt = SampleData.at(14, 44) // heartbeat still fresh at 14:51
+        let input = (index: FileResult.ok(SampleData.index()), tree: FileResult.ok(t))
+        let settings = WidgetSettings(treeKey: SampleData.treeKey, treeName: SampleData.treeName(), hideNames: false, language: .auto)
+        func model(_ now: Date) -> WidgetModel {
+            WidgetModelBuilder.build(index: input.index, tree: input.tree, settings: settings, now: now, timeZone: SampleData.timeZone)
+        }
+        let during = model(SampleData.at(14, 45))
+        XCTAssertEqual(during.statusText, "Pauza")
+        XCTAssertEqual(during.smallSecond, "pokračuje v 14:50")
+        let after = model(SampleData.at(14, 51))
+        XCTAssertNotEqual(after.statusText, "Pauza")
+        XCTAssertFalse(after.smallSecondIsPause)
+        for line in after.lines {
+            XCTAssertFalse((line.since ?? "").contains("pauza"), line.since ?? "")
+            XCTAssertFalse((line.sinceShort ?? "").contains("pauza"), line.sinceShort ?? "")
+        }
+        XCTAssertEqual(state(index: input.index, tree: input.tree, now: SampleData.at(14, 51)), .data(.workingMany, nothingNew: false))
+    }
+
+    /// Timeline entries without new data: just after each pause ends and when the data turns stale.
+    func testEntryDates() {
+        let t = SampleData.tree(.b)
+        let staleAt = SampleData.generatedAt + 15 * 60 + 1
+        let pauseOver = SampleData.at(14, 50) + 1
+        XCTAssertEqual(WidgetModelBuilder.entryDates(t, now: SampleData.at(14, 35)), [staleAt, pauseOver])
+        XCTAssertEqual(WidgetModelBuilder.entryDates(t, now: staleAt), [pauseOver])
+        XCTAssertEqual(WidgetModelBuilder.entryDates(t, now: pauseOver), [], "past pause: no entry")
+        var stopped = t
+        stopped.running = false
+        XCTAssertEqual(WidgetModelBuilder.entryDates(stopped, now: SampleData.at(14, 35)), [], "stopped research shows no pause")
+    }
+
     func testStateTexts() {
         let a = SampleData.model(.a)
         XCTAssertEqual(a.asOfHeader, "stav 14:32")
@@ -90,14 +125,14 @@ final class StateTests: XCTestCase {
         let b = SampleData.model(.b)
         XCTAssertEqual(b.linesCount, "3 linie")
         XCTAssertEqual(b.smallSecond, "a 2 další linie")
-        XCTAssertEqual(b.lines.last?.since, "pauza · pokračuje v 14:30")
-        XCTAssertEqual(b.lines.last?.sinceShort, "pauza do 14:30")
+        XCTAssertEqual(b.lines.last?.since, "pauza · pokračuje v 14:50")
+        XCTAssertEqual(b.lines.last?.sinceShort, "pauza do 14:50")
         XCTAssertEqual(b.lines.map(\.glyph), ["↑", "↓", "⌕"])
 
         let c = SampleData.model(.c)
         XCTAssertEqual(c.shape, .square)
         XCTAssertEqual(c.statusText, "Pauza")
-        XCTAssertEqual(c.smallSecond, "pokračuje v 14:30")
+        XCTAssertEqual(c.smallSecond, "pokračuje v 14:50")
         XCTAssertTrue(c.smallSecondIsPause)
 
         let d = SampleData.model(.d)
