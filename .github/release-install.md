@@ -1,7 +1,7 @@
 ## Installing
 
 Requires macOS 14 Sonoma or later and [Strom Research](https://github.com/ACiDekCZ/strom-research) 1.21 or later
-on the same Mac (until 1.21 is out, its beta).
+on the same Mac.
 
 The app is signed with the project's Apple Development certificate but **not notarized by Apple**, so macOS blocks
 the first start once.
@@ -22,7 +22,7 @@ Widgets on the desktop stay.
 <summary>Česky – instalace</summary>
 
 Potřebuje macOS 14 Sonoma nebo novější a [Strom výzkum](https://github.com/ACiDekCZ/strom-research) 1.21 nebo
-novější na tomtéž Macu (než vyjde 1.21, jeho betu).
+novější na tomtéž Macu.
 
 Aplikace je podepsaná certifikátem Apple Development projektu, ale **není notarizovaná Applem**, takže macOS
 první spuštění jednou zablokuje.
@@ -44,7 +44,7 @@ Widgety na ploše zůstanou.
 <summary>Deutsch – Installation</summary>
 
 Benötigt macOS 14 Sonoma oder neuer und [Strom Ahnenforschung](https://github.com/ACiDekCZ/strom-research) 1.21
-oder neuer auf demselben Mac (bis 1.21 erscheint, deren Beta).
+oder neuer auf demselben Mac.
 
 Die App ist mit dem Apple-Development-Zertifikat des Projekts signiert, aber **nicht von Apple notarisiert**;
 macOS blockiert deshalb den ersten Start einmal.

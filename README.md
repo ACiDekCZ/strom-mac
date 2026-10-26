@@ -13,7 +13,7 @@ The pictures show made-up sample research (Lhotákovi ze Lhoty). More of them: [
 ## Requirements
 
 - macOS 14 Sonoma or later.
-- [Strom Research](https://github.com/ACiDekCZ/strom-research) 1.21 or later on the same Mac (until 1.21 is out, its beta).
+- [Strom Research](https://github.com/ACiDekCZ/strom-research) 1.21 or later on the same Mac.
   The research writes an overview of each tree for the widget while its bridge runs (`strom live`).
 
 ## Install
