@@ -5,7 +5,7 @@ English · [Čeština](CHANGELOG.cs.md) · [Deutsch](CHANGELOG.de.md)
 The changes of each version in short. The downloads are on
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
-## Unreleased
+## 0.1.1
 
 - **Links open in the installed Strom app.** A click on the widget, a row or a link in the Strom Widget app opens the
   Strom app installed from Chrome or another Chromium browser (Strom Beta for beta addresses); without it, a tab of

@@ -5,7 +5,7 @@
 Die Änderungen jeder Version in Kürze. Die Downloads stehen bei
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
-## Unreleased
+## 0.1.1
 
 - **Links öffnen sich in der installierten Strom-App.** Ein Klick auf das Widget, eine Zeile oder einen Link in der
   App Strom Widget öffnet die aus Chrome oder einem anderen Chromium-Browser installierte Strom-App (Strom Beta für

@@ -5,7 +5,7 @@
 Změny každé verze ve zkratce. Ke stažení na
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
-## Unreleased
+## 0.1.1
 
 - **Odkazy se otevřou v nainstalované aplikaci Strom.** Klik na widget, řádek nebo odkaz v aplikaci Strom Widget
   otevře aplikaci Strom nainstalovanou z Chromu nebo jiného prohlížeče Chromium (pro adresy bety Strom Beta); bez ní
