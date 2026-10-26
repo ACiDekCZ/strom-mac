@@ -20,7 +20,7 @@ for f in CHANGELOG.md CHANGELOG.cs.md CHANGELOG.de.md; do
   [ -n "$(section "$f")" ] || { echo "error: $f has no notes for $VERSION" >&2; exit 1; }
 done
 
-cat "$ROOT/.github/release-install.md"
+sed -e "s/Strom-Widget-X\.Y\.Z\.zip/Strom-Widget-$VERSION.zip/g" "$ROOT/.github/release-install.md"
 printf '\n## What'"'"'s new in %s\n\n' "$VERSION"
 section CHANGELOG.md
 printf '\n<details>\n<summary>Česky – co je nového</summary>\n\n'
