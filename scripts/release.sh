@@ -40,11 +40,13 @@ APP="$ARCHIVE/Products/Applications/Strom Widget.app"
 
 # Xcode registers every built app with Launch Services; take the products back out, whatever happens.
 unregister() {
-  local p
-  for p in "$WORK"/DerivedData/Build/Products/*/*.app "$WORK"/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/*/*/*.app \
-           "$APP" "$APP/Contents/Library/LoginItems/"*.app "$APP/Contents/PlugIns/"*.appex; do
-    [ -e "$p" ] && "$LSREGISTER" -u "$p" 2>/dev/null || true
-  done
+  find "$WORK" \( -name '*.app' -o -name '*.appex' \) -prune -print0 2>/dev/null \
+    | while IFS= read -r -d '' p; do
+        "$LSREGISTER" -u "$p" 2>/dev/null || true
+        [ -d "$p/Contents/Library/LoginItems" ] && for h in "$p"/Contents/Library/LoginItems/*.app; do "$LSREGISTER" -u "$h" 2>/dev/null || true; done
+        [ -d "$p/Contents/PlugIns" ] && for x in "$p"/Contents/PlugIns/*.appex; do "$LSREGISTER" -u "$x" 2>/dev/null || true; done
+        true
+      done
   rm -rf "$WORK"
 }
 trap unregister EXIT
