@@ -147,9 +147,11 @@ private struct SmallView: View {
                     MessageBlock(m: m, family: .small)
                     Spacer(minLength: 0)
                 } else {
-                    // A line title on two lines only while everything fits; otherwise one line ending with „…“.
+                    // A line title on two lines while everything fits, if need be a little closer to the header;
+                    // otherwise one line ending with „…“.
                     ViewThatFits(in: .vertical) {
                         status(ink, titleLines: 2)
+                        status(ink, titleLines: 2, compact: true)
                         status(ink, titleLines: 1)
                     }
                 }
@@ -157,25 +159,28 @@ private struct SmallView: View {
         }
     }
 
-    private func status(_ ink: Ink, titleLines: Int) -> some View {
-        VStack(alignment: .leading, spacing: 5) {
-            HStack(spacing: 7) {
-                StatusShapeView(shape: m.shape, size: 10)
-                Text(m.statusShort).font(.sf(17, .semibold)).foregroundStyle(ink.text).lineLimit(1)
+    private func status(_ ink: Ink, titleLines: Int, compact: Bool = false) -> some View {
+        // The spacer alone keeps the gap above the numbers.
+        VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 5) {
+                HStack(spacing: 7) {
+                    StatusShapeView(shape: m.shape, size: 10)
+                    Text(m.statusShort).font(.sf(17, .semibold)).foregroundStyle(ink.text).lineLimit(1)
+                }
+                .padding(.top, compact ? 2 : 5)
+                Text(m.lines.first?.title ?? m.statusSentence ?? "")
+                    .font(.sf(12.5))
+                    .foregroundStyle(ink.text)
+                    .lineLimit(titleLines)
+                    .fixedSize(horizontal: false, vertical: true)
+                if let second = m.smallSecond {
+                    Text(second)
+                        .font(.sf(11))
+                        .foregroundStyle(m.smallSecondIsPause ? ink.pauseText : ink.faint)
+                        .lineLimit(1)
+                }
             }
-            .padding(.top, 5)
-            Text(m.lines.first?.title ?? m.statusSentence ?? "")
-                .font(.sf(12.5))
-                .foregroundStyle(ink.text)
-                .lineLimit(titleLines)
-                .fixedSize(horizontal: false, vertical: true)
-            if let second = m.smallSecond {
-                Text(second)
-                    .font(.sf(11))
-                    .foregroundStyle(m.smallSecondIsPause ? ink.pauseText : ink.faint)
-                    .lineLimit(1)
-            }
-            Spacer(minLength: 0)
+            Spacer(minLength: compact ? 2 : 4)
             if m.showSmallCounts {
                 HStack(alignment: .top, spacing: 8) {
                     VStack(alignment: .leading, spacing: 0) {
@@ -327,10 +332,11 @@ private struct OneLineRow: View {
     }
 }
 
-/// Kind word and text of a finding on one line, never wider than offered. The kind word goes first but takes at most
-/// `kindShare` of the width while a text follows; a longer kind word (a custom event type) ends with „…“ like the text.
+/// Kind word and text of a finding on one line, never wider than offered. The kind word stays whole while it leaves the
+/// text at least `1 - kindShare` of the width; a longer kind word (a custom event type) ends with „…“ like the text,
+/// which starts right after the kind word as drawn.
 struct KindTextLayout: Layout {
-    var kindShare: CGFloat = 0.6
+    var kindShare: CGFloat = 0.75
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         let widths = self.widths(proposal.width, subviews)
@@ -350,7 +356,9 @@ struct KindTextLayout: Layout {
         let ideal = subviews.map { $0.sizeThatFits(.unspecified).width }
         guard let available, ideal.reduce(0, +) > available else { return ideal }
         guard ideal.count > 1 else { return [min(ideal[0], available)] }
-        let kind = min(ideal[0], max(available * kindShare, available - ideal[1]))
+        let offered = min(ideal[0], max(available * kindShare, available - ideal[1]))
+        // A truncated kind word is narrower than offered; the text takes the rest.
+        let kind = min(subviews[0].sizeThatFits(ProposedViewSize(width: offered, height: nil)).width, offered)
         return [kind, max(available - kind, 0)]
     }
 }
