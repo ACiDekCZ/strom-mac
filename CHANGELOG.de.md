@@ -5,7 +5,7 @@
 Die Änderungen jeder Version in Kürze. Die Downloads stehen bei
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
-## Unreleased
+## 0.1.2
 
 - **Lange Texte bringen das Widget nicht mehr aus der Form.** Eine lange Art eines Fundes (etwa ein eigener
   Ereignistyp) endet wie die anderen Texte mit „…“, und Logo, Stammbaumname und Zeiten bleiben in jeder Größe

@@ -5,7 +5,7 @@ English · [Čeština](CHANGELOG.cs.md) · [Deutsch](CHANGELOG.de.md)
 The changes of each version in short. The downloads are on
 [GitHub Releases](https://github.com/ACiDekCZ/strom-mac/releases).
 
-## Unreleased
+## 0.1.2
 
 - **Long texts no longer push the widget out of shape.** A long kind of finding (such as a custom event type) ends
   with “…” like the other texts, and the logo, the tree name and the times stay inside the edges in every size.
